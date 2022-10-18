@@ -20,4 +20,4 @@ Disallow: /auth/twitter
 Disallow: /auth/google
 
 
-Sitemap: http://127.0.0.1:8000/ad/ir/sitemaps.xml
+Sitemap: http://192.168.1.55/ad/ir/sitemaps.xml

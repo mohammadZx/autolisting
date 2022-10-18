@@ -36,6 +36,8 @@ use App\Http\Controllers\Web\Search\TagController;
 use App\Http\Controllers\Web\Search\UserController;
 use App\Http\Controllers\Web\SitemapController;
 use App\Http\Controllers\Web\SitemapsController;
+use App\Models\City;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
 /*
@@ -539,3 +541,45 @@ Route::namespace('App\Http\Controllers\Web')
 Route::get('register', function(){
 return redirect('/login');
 })->name('register');
+
+
+
+Route::get('geo-import', function(){
+	$api = 'https://api.divar.ir/v5/places/cities/1/districts';
+	$admincode1 = 'IR.Z001';
+	$admincode2 = 'IR.Z001.Z004';
+	$countrycode = 'IR';
+	$active = 1;
+	$timezone = 'Asia/Tehran';
+
+	$req = Http::get($api);
+	$data = $req->json()['districts'];
+
+	if(!$data) return 'cant get data';
+
+
+	foreach($data as $item){
+		$city = new City();
+		$city->country_code  = $countrycode;
+		$city->subadmin1_code  = $admincode1;
+		$city->subadmin2_code   = $admincode2;
+		$city->country_code  = $countrycode;
+		$city->time_zone  = $timezone;
+		$city->active  = $active;
+
+		$city->name = $item['name']; 
+		$city->tags = implode(',', array_column($item['tags'], 'title'));
+
+		if(isset($item['centroid'])){
+			$city->longitude = $item['centroid']['longitude'];
+			$city->latitude = $item['centroid']['latitude'];
+		}
+		
+
+		$city->save();
+	}
+	
+	return 'cities imported';
+
+
+});

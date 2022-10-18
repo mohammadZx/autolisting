@@ -73,6 +73,7 @@ class City extends BaseModel
 		'subadmin2_code',
 		'population',
 		'time_zone',
+		'tags',
 		'active',
 	];
 	public $translatable = ['name'];

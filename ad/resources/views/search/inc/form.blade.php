@@ -22,7 +22,7 @@ $qAdmin = request()->get('r');
 			<div class="col-12 px-1 py-sm-1 bg-primary rounded">
 				<div class="row gx-1 gy-1">
 			
-					<div class="col-xl-3 col-md-3 col-sm-12 col-12">
+					<div class="col-xl-5 col-md-5 col-sm-12 col-12">
 						<select name="c" id="catSearch" class="form-control selecter">
 							<option value="" {{ ($qCategory=='') ? 'selected="selected"' : '' }}>
 								{{ t('all_categories') }}
@@ -37,14 +37,14 @@ $qAdmin = request()->get('r');
 						</select>
 					</div>
 					
-					<div class="col-xl-4 col-md-4 col-sm-12 col-12">
+					<div class="col-xl-4 col-md-4 col-sm-12 col-12 d-none">
 						<input name="q" class="form-control keyword" type="text" placeholder="{{ t('what') }}" value="{{ $keywords }}">
 					</div>
 					
 					<input type="hidden" id="rSearch" name="r" value="{{ $qAdmin }}">
 					<input type="hidden" id="lSearch" name="l" value="{{ $qLocationId }}">
 					
-					<div class="col-xl-3 col-md-3 col-sm-12 col-12 search-col locationicon">
+					<div class="col-xl-5 col-md-5 col-sm-12 col-12 search-col locationicon">
 						<input type="text" id="locSearch" name="location" class="form-control locinput input-rel searchtag-input"
 							   placeholder="{{ t('where') }}" value="{{ $qLocation }}" data-bs-placement="top"
 							   data-bs-toggle="tooltipHover"

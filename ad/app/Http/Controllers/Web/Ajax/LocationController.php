@@ -181,7 +181,7 @@ class LocationController extends FrontController
 		
 		// Search
 		if (request()->filled('q')) {
-			$q = request()->get('q') . '%';
+			$q = '%' . request()->get('q') . '%';
 			$cities->transWhere('name', 'LIKE', $q);
 			$cacheId .= '.where.name.' . $q;
 		}

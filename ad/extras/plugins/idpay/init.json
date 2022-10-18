@@ -1,0 +1,10 @@
+{
+    "name": "idpay",
+    "version": "1.0",
+    "display_name": "آی دی پی",
+    "description": "پرداخت امن با آیدی پی",
+    "author": "Mohammad yazdani",
+    "category": "payment",
+    "has_installer": true,
+    "item_id": ""
+}

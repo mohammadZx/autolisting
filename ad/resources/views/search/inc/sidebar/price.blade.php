@@ -4,7 +4,7 @@ $isPriceFilterCanBeDisplayed = ((isset($cat) && !empty($cat)) && !in_array(data_
 // Clear Filter Button
 $clearFilterBtn = \App\Helpers\UrlGen::getPriceFilterClearLink($cat ?? null, $city ?? null);
 ?>
-@if ($isPriceFilterCanBeDisplayed)
+@if ($isPriceFilterCanBeDisplayed = false)
 	{{-- Price --}}
 	<div class="block-title has-arrow sidebar-header">
 		<h5>

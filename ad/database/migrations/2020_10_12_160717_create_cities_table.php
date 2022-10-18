@@ -25,6 +25,7 @@ class CreateCitiesTable extends Migration
 			$table->string('subadmin2_code', 100)->nullable();
 			$table->bigInteger('population')->nullable();
 			$table->string('time_zone', 100)->nullable();
+			$table->text('tags')->nullable();
 			$table->boolean('active')->nullable()->default('1');
 			$table->timestamps();
 			$table->index(["country_code"]);
