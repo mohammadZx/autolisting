@@ -412,7 +412,7 @@
 	
 	{{-- .btn-listing --}}
 	.skin .btn-listing {
-		font-family: "Roboto", Helvetica, Arial, sans-serif;
+		
 		font-size: 14px;
 		font-weight: bold;
 		text-transform: none;

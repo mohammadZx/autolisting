@@ -10,7 +10,9 @@ return [
     | The following language lines are used by the global website.
     |
     */
-
+    'login/register' => 'ورود/ثبت نام',
+    'address' => 'آدرس',
+    'type address completely' => 'آدرس دقیق را وارد کنید',
 	'no_categories_found' => 'دسته بندی یافت نشد',
 	'no_cities_found' => 'شهر یافت نشد',
 	'no_countries_found' => 'کشور یافت نشد',

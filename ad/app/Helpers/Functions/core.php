@@ -2455,6 +2455,7 @@ function getAuthFields(bool $asChannel = false): array
  */
 function getAuthField($entity = null): string
 {
+	return 'phone';
 	$authFields = array_keys(getAuthFields());
 	$defaultAuthField = config('settings.sms.default_auth_field', 'email');
 	

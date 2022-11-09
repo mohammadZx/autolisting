@@ -90,6 +90,7 @@ trait UpdateMultiStepsFormTrait
 		// Checkboxes
 		$post->negotiable = $request->input('negotiable');
 		$post->phone_hidden = $request->input('phone_hidden');
+		$post->address = $request->input('address');
 		
 		// Other fields
 		$post->lat = $city->latitude;

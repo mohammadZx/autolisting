@@ -190,12 +190,15 @@
 															<a href="{!! \App\Helpers\UrlGen::city(data_get($post, 'city')) !!}">
 																{{ data_get($post, 'city.name') }}
 															</a>
+															 
+															{{data_get($post, 'address')}}
 														</span>
 													</h4>
 												</div>
 		
 												{{-- Price / Salary --}}
 												<div class="col-md-6 col-sm-6 col-6 text-end">
+													@if(config('settings.show_price', false))
 													<h4 class="fw-normal p-0">
 														<span class="fw-bold">
 															{{ getPriceLabel(data_get($post, 'category.type')) }}
@@ -209,6 +212,7 @@
 															@endif
 														</span>
 													</h4>
+													@endif
 												</div>
 											</div>
 											<hr class="border-0 bg-secondary">

@@ -26,7 +26,7 @@
 				@includeFirst([config('larapen.core.customizedViewPath') . 'post.inc.notification', 'post.inc.notification'])
 				
 				<?php $postInput = $postInput ?? []; ?>
-				<div class="col-md-9 page-content">
+				<div class="col-md-12 page-content">
 					<div class="inner-box category-content" style="overflow: visible;">
 						<h2 class="title-2">
 							<strong><i class="far fa-edit"></i> {{ t('create_new_listing') }}</strong>
@@ -42,8 +42,8 @@
 										{{-- category_id --}}
 										<?php $categoryIdError = (isset($errors) && $errors->has('category_id')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $categoryIdError }}">{{ t('category') }} <sup>*</sup></label>
-											<div class="col-md-8">
+											<label class="col-md-12 text-start col-form-label{{ $categoryIdError }}">{{ t('category') }} <sup>*</sup></label>
+											<div class="col-md-12">
 												<div id="catsContainer" class="rounded{{ $categoryIdError }}">
 													<a href="#browseCategories" data-bs-toggle="modal" class="cat-link" data-id="0">
 														{{ t('select_a_category') }}
@@ -59,8 +59,8 @@
 											@if (isset($postTypes))
 												<?php $postTypeIdError = (isset($errors) && $errors->has('post_type_id')) ? ' is-invalid' : ''; ?>
 												<div id="postTypeBloc" class="row mb-3 required">
-													<label class="col-md-3 col-form-label">{{ t('type') }} <sup>*</sup></label>
-													<div class="col-md-8">
+													<label class="col-md-12 text-start col-form-label">{{ t('type') }} <sup>*</sup></label>
+													<div class="col-md-12">
 														@foreach ($postTypes as $postType)
 														<div class="form-check form-check-inline pt-2">
 															<input name="post_type_id"
@@ -84,8 +84,8 @@
 										{{-- title --}}
 										<?php $titleError = (isset($errors) && $errors->has('title')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $titleError }}" for="title">{{ t('title') }} <sup>*</sup></label>
-											<div class="col-md-8">
+											<label class="col-md-12 text-start col-form-label{{ $titleError }}" for="title">{{ t('title') }} <sup>*</sup></label>
+											<div class="col-md-12">
 												<input id="title" name="title" placeholder="{{ t('listing_title') }}" class="form-control input-md{{ $titleError }}"
 													   type="text" value="{{ old('title', data_get($postInput, 'title')) }}">
 												<div class="form-text text-muted">{{ t('a_great_title_needs_at_least_60_characters') }}</div>
@@ -103,7 +103,7 @@
 													$descriptionErrorLabel = $descriptionError;
 												}
 											?>
-											<label class="col-md-3 col-form-label{{ $descriptionErrorLabel }}" for="description">
+											<label class="col-md-12 text-start col-form-label{{ $descriptionErrorLabel }}" for="description">
 												{{ t('Description') }} <sup>*</sup>
 											</label>
 											<div class="{{ $descriptionColClass }}">
@@ -120,10 +120,11 @@
 										{{-- cfContainer --}}
 										<div id="cfContainer"></div>
 
+										@if(config('settings.show_price', false))
 										{{-- price --}}
 										<?php $priceError = (isset($errors) && $errors->has('price')) ? ' is-invalid' : ''; ?>
 										<div id="priceBloc" class="row mb-3">
-											<label class="col-md-3 col-form-label{{ $priceError }}" for="price">{{ t('price') }}</label>
+											<label class="col-md-12 text-start col-form-label{{ $priceError }}" for="price">{{ t('price') }}</label>
 											<div class="col-md-8">
 												<div class="input-group">
 													<span class="input-group-text">{!! config('currency')['symbol'] !!}</span>
@@ -148,6 +149,7 @@
 												<div class="form-text text-muted">{{ t('price_hint') }}</div>
 											</div>
 										</div>
+										@endif
 										
 										{{-- country_code --}}
 										@php
@@ -158,10 +160,10 @@
 										@endphp
 										@if (empty(config('country.code')))
 											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label{{ $countryCodeError }}" for="country_code">
+												<label class="col-md-12 text-start col-form-label{{ $countryCodeError }}" for="country_code">
 													{{ t('your_country') }} <sup>*</sup>
 												</label>
-												<div class="col-md-8">
+												<div class="col-md-12">
 													<select id="countryCode" name="country_code" class="form-control large-data-selecter{{ $countryCodeError }}">
 														<option value="0" {{ (!old('country_code') || old('country_code')==0) ? 'selected="selected"' : '' }}>
 															{{ t('select_a_country') }}
@@ -182,8 +184,8 @@
 											{{-- admin_code --}}
 											<?php $adminCodeError = (isset($errors) && $errors->has('admin_code')) ? ' is-invalid' : ''; ?>
 											<div id="locationBox" class="row mb-3 required">
-												<label class="col-md-3 col-form-label{{ $adminCodeError }}" for="admin_code">{{ t('location') }} <sup>*</sup></label>
-												<div class="col-md-8">
+												<label class="col-md-12 text-start col-form-label{{ $adminCodeError }}" for="admin_code">{{ t('location') }} <sup>*</sup></label>
+												<div class="col-md-12">
 													<select id="adminCode" name="admin_code" class="form-control large-data-selecter{{ $adminCodeError }}">
 														<option value="0" {{ (!old('admin_code') || old('admin_code')==0) ? 'selected="selected"' : '' }}>
 															{{ t('select_your_location') }}
@@ -196,8 +198,8 @@
 										{{-- city_id --}}
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
 										<div id="cityBox" class="row mb-3 required">
-											<label class="col-md-3 col-form-label{{ $cityIdError }}" for="city_id">{{ t('city') }} <sup>*</sup></label>
-											<div class="col-md-8">
+											<label class="col-md-12 text-start col-form-label{{ $cityIdError }}" for="city_id">{{ t('city') }} <sup>*</sup></label>
+											<div class="col-md-12">
 												<select id="cityId" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
 													<option value="0" {{ (!old('city_id') || old('city_id')==0) ? 'selected="selected"' : '' }}>
 														{{ t('select_a_city') }}
@@ -206,11 +208,24 @@
 											</div>
 										</div>
 										
+
+										{{-- address  --}}
+										<?php $addressError = (isset($errors) && $errors->has('address')) ? ' is-invalid' : ''; ?>
+										<div id="address_box" class="row mb-3 required">
+											<label class="col-md-12 text-start col-form-label{{ $addressError }}" for="address">{{ t('address') }} <sup>*</sup></label>
+											<div class="col-md-12">
+											<input placeholder="{{ t('type address completely') }}" id="address" name="address"
+												class="form-control input-md{{ $addressError }}"
+												type="text"
+												value="{{ old('address') }}">
+											</div>
+										</div>
+										
 										{{-- tags --}}
 										<?php $tagsError = (isset($errors) && $errors->has('tags.*')) ? ' is-invalid' : ''; ?>
 										<div class="row mb-3">
-											<label class="col-md-3 col-form-label{{ $tagsError }}" for="tags">{{ t('Tags') }}</label>
-											<div class="col-md-8">
+											<label class="col-md-12 text-start col-form-label{{ $tagsError }}" for="tags">{{ t('Tags') }}</label>
+											<div class="col-md-12">
 												<select id="tags" name="tags[]" class="form-control tags-selecter" multiple="multiple">
 													<?php $tags = old('tags', data_get($postInput, 'tags')); ?>
 													@if (!empty($tags))
@@ -235,8 +250,8 @@
 										@else
 											<?php $isPermanentError = (isset($errors) && $errors->has('is_permanent')) ? ' is-invalid' : ''; ?>
 											<div id="isPermanentBox" class="row mb-3 required hide">
-												<label class="col-md-3 col-form-label"></label>
-												<div class="col-md-8">
+												<label class="col-md-12 text-start col-form-label"></label>
+												<div class="col-md-12">
 													<div class="form-check">
 														<input id="isPermanent" name="is_permanent"
 															   class="form-check-input mt-1{{ $isPermanentError }}"
@@ -266,10 +281,10 @@
 											<input id="contactName" name="contact_name" type="hidden" value="{{ auth()->user()->name }}">
 										@else
 											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label{{ $contactNameError }}" for="contact_name">
+												<label class="col-md-12 text-start col-form-label{{ $contactNameError }}" for="contact_name">
 													{{ t('your_name') }} <sup>*</sup>
 												</label>
-												<div class="col-md-9 col-lg-8 col-xl-6">
+												<div class="col-md-12 col-lg-12 col-xl-12">
 													<div class="input-group">
 														<span class="input-group-text"><i class="far fa-user"></i></span>
 														<input id="contactName" name="contact_name"
@@ -292,8 +307,8 @@
 										@endphp
 										@if ($usersCanChooseNotifyChannel)
 											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label" for="auth_field">{{ t('notifications_channel') }} <sup>*</sup></label>
-												<div class="col-md-9">
+												<label class="col-md-12 text-start col-form-label" for="auth_field">{{ t('notifications_channel') }} <sup>*</sup></label>
+												<div class="col-md-12">
 													@foreach ($authFields as $iAuthField => $notificationType)
 														<div class="form-check form-check-inline pt-2">
 															<input name="auth_field"
@@ -320,31 +335,7 @@
 											$forceToDisplay = isBothAuthFieldsCanBeDisplayed() ? ' force-to-display' : '';
 										@endphp
 										
-										{{-- email --}}
-										@php
-											$emailError = (isset($errors) && $errors->has('email')) ? ' is-invalid' : '';
-											$emailValue = (auth()->check() && isset(auth()->user()->email))
-												? auth()->user()->email
-												: data_get($postInput, 'email');
-										@endphp
-										<div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $emailError }}" for="email">{{ t('email') }}
-												@if (getAuthField() == 'email')
-													<sup>*</sup>
-												@endif
-											</label>
-											<div class="col-md-9 col-lg-8 col-xl-6">
-												<div class="input-group">
-													<span class="input-group-text"><i class="far fa-envelope"></i></span>
-													<input id="email" name="email"
-														   class="form-control{{ $emailError }}"
-														   placeholder="{{ t('email_address') }}"
-														   type="text"
-														   value="{{ old('email', $emailValue) }}"
-													>
-												</div>
-											</div>
-										</div>
+														
 										
 										{{-- phone --}}
 										@php
@@ -365,12 +356,12 @@
 											$phoneValueOld = phoneE164(old('phone', $phoneValue), old('phone_country', $phoneCountryValue));
 										@endphp
 										<div class="row mb-3 auth-field-item required{{ $forceToDisplay }}">
-											<label class="col-md-3 col-form-label{{ $phoneError }}" for="phone">{{ t('phone_number') }}
+											<label class="col-md-12 text-start col-form-label{{ $phoneError }}" for="phone">{{ t('phone_number') }}
 												@if (getAuthField() == 'phone')
 													<sup>*</sup>
 												@endif
 											</label>
-											<div class="col-md-9 col-lg-8 col-xl-6">
+											<div class="col-md-12 col-lg-12 col-xl-12">
 												<div class="input-group">
 													<input id="phone" name="phone"
 														   class="form-control input-md{{ $phoneError }}"
@@ -393,8 +384,8 @@
 												@if (config('settings.single.auto_registration') == 1)
 														<?php $autoRegistrationError = (isset($errors) && $errors->has('auto_registration')) ? ' is-invalid' : ''; ?>
 													<div class="row mb-3 required">
-														<label class="col-md-3 col-form-label"></label>
-														<div class="col-md-8">
+														<label class="col-md-12 text-start col-form-label"></label>
+														<div class="col-md-12">
 															<div class="form-check">
 																<input name="auto_registration" id="auto_registration"
 																	   class="form-check-input{{ $autoRegistrationError }}"
@@ -421,8 +412,8 @@
 											{{-- accept_terms --}}
 												<?php $acceptTermsError = (isset($errors) && $errors->has('accept_terms')) ? ' is-invalid' : ''; ?>
 											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label"></label>
-												<div class="col-md-8">
+												<label class="col-md-12 text-start col-form-label"></label>
+												<div class="col-md-12">
 													<div class="form-check">
 														<input name="accept_terms" id="acceptTerms"
 															   class="form-check-input{{ $acceptTermsError }}"
@@ -439,8 +430,8 @@
 											{{-- accept_marketing_offers --}}
 											<?php $acceptMarketingOffersError = (isset($errors) && $errors->has('accept_marketing_offers')) ? ' is-invalid' : ''; ?>
 											<div class="row mb-3 required">
-												<label class="col-md-3 col-form-label"></label>
-												<div class="col-md-8">
+												<label class="col-md-12 text-start col-form-label"></label>
+												<div class="col-md-12">
 													<div class="form-check">
 														<input name="accept_marketing_offers" id="acceptMarketingOffers"
 															   class="form-check-input{{ $acceptMarketingOffersError }}"
@@ -477,10 +468,6 @@
 				</div>
 				<!-- /.page-content -->
 
-				<div class="col-md-3 reg-sidebar">
-					@includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.right-sidebar', 'post.createOrEdit.inc.right-sidebar'])
-				</div>
-				
 			</div>
 		</div>
 	</div>

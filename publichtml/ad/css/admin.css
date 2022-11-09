@@ -4,7 +4,13 @@
   src: url("/ad/assets/fonts/bootstrapicons/1.9.1/fonts/bootstrap-icons.woff2?8d200481aa7f02a2d63a331fc782cfaf") format("woff2"),
 url("/ad/assets/fonts/bootstrapicons/1.9.1/fonts/bootstrap-icons.woff?8d200481aa7f02a2d63a331fc782cfaf") format("woff");
 }
-
+@font-face {
+  font-family: mainfont;
+  src: url(/ad/fonts/IRANSansWeb.woff2) format('woff2'), url(/ad/fonts/IRANSansWeb.woff) format('woff'), url(/ad/fonts/IRANSansWeb.ttf) format('truetype') ;
+}
+body,h1,h2,h3,h4,h5,h6,p,a,div,table,tr,td,tbody,tfoot,caption, select,input,option,textarea,label, ul,ol,dl,li, span, button, figure,figcaption,sup,sub{
+  font-family: mainfont;
+}
 .bi::before,
 [class^="bi-"]::before,
 [class*=" bi-"]::before {

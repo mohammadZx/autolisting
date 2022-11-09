@@ -103,7 +103,7 @@ $pageTitles = [
 										<th data-type="numeric" data-sort-initial="true"></th>
 										<th>{{ t('Photo') }}</th>
 										<th data-sort-ignore="true">{{ t('listing_details') }}</th>
-										<th data-type="numeric">--</th>
+										@if(config('settings.show_price', false)) <th data-type="numeric">--</th> @endif
 										<th>{{ t('Option') }}</th>
 									</tr>
 									</thead>
@@ -173,6 +173,7 @@ $pageTitles = [
 												</p>
 											</div>
 										</td>
+										@if(config('settings.show_price', false))
 										<td style="width:16%" class="price-td">
 											<div>
 												<strong>
@@ -187,6 +188,7 @@ $pageTitles = [
 												</strong>
 											</div>
 										</td>
+										@endif
 										<td style="width:10%" class="action-td">
 											<div>
 												@if (

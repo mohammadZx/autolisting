@@ -3,14 +3,14 @@
 	<div class="swiper-container main-gallery">
 		<div class="swiper-wrapper">
 			@forelse($pictures as $key => $image)
-				@if (!empty($price))
+				@if (!empty($price) && config('settings.show_price', false))
 					<div class="p-price-tag">{!! $price !!}</div>
 				@endif
 				<div class="swiper-slide">
 					{!! imgTag(data_get($image, 'filename'), 'big', ['alt' => $titleSlug . '-big-' . $key]) !!}
 				</div>
 			@empty
-				@if (!empty($price))
+				@if (!empty($price) && config('settings.show_price', false))
 					<div class="p-price-tag">{!! $price !!}</div>
 				@endif
 				<div class="swiper-slide">

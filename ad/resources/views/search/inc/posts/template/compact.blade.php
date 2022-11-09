@@ -78,9 +78,11 @@ $colPriceBox = 'col-sm-3 col-12';
 			</div>
 			
 			<div class="{{ $colPriceBox }} text-end price-box" style="white-space: nowrap;">
+				@if(config('settings.show_price', false))
 				<h2 class="item-price">
 					{!! getPriceInfo(data_get($post, 'price'), data_get($post, 'category.type') ?? null) !!}
 				</h2>
+				@endif
 				@if (!empty(data_get($post, 'latestPayment.package')))
 					@if (data_get($post, 'latestPayment.package.has_badge') == 1)
 						<a class="btn btn-danger btn-sm make-favorite">

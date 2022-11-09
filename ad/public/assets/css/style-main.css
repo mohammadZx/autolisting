@@ -111,7 +111,7 @@ body,
 /* dropdown-items-links */
 ul.dropdown-menu.user-menu > li a,
 li.lang-menu ul.dropdown-menu > li a {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: .84rem;
 	font-weight: 400;
 }
@@ -167,7 +167,7 @@ ul li, ol li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 }
 
 @media (max-width: 767px) {
@@ -294,7 +294,7 @@ img {
 
 /* Sidebar box */
 .card-header {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 1rem;
 	text-transform: none;
 }
@@ -1076,7 +1076,6 @@ ul.installation li i {
 .ribbon-horizontal span {
 	position: relative;
 	padding: 0 4px 0 10px;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
 	text-align: center;
@@ -1623,7 +1622,7 @@ aside .inner-box.enable-long-words {
 }
 
 .mobile-filter-bar {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 }
 
 .form-group.required > sup,

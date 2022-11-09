@@ -14,3 +14,14 @@
 
 /* Your custom CSS here... */
 
+@font-face {
+    font-family: mainfont;
+    src: url(/ad/fonts/IRANSansWeb.woff2) format('woff2'), url(/ad/fonts/IRANSansWeb.woff) format('woff'), url(/ad/fonts/IRANSansWeb.ttf) format('truetype') ;
+}
+body,h1,h2,h3,h4,h5,h6,p,a,div,table,tr,td,tbody,tfoot,caption, select,input,option,textarea,label, ul,ol,dl,li, span, button, figure,figcaption,sup,sub{
+    font-family: mainfont;
+}
+
+.main-logo {
+    width: 150px;
+  }

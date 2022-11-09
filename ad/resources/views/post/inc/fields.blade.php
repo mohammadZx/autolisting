@@ -23,8 +23,8 @@
 			
 			{{-- checkbox --}}
 			<div class="row mb-3 {{ $requiredClass }}" style="margin-top: -10px;">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}"></label>
-				<div class="col-md-8">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}"></label>
+				<div class="col-md-12">
 					<div class="form-check pt-2">
 						<input id="{{ $fieldId }}"
 							   name="{{ $fieldName }}"
@@ -46,14 +46,14 @@
 			@if ($field->options->count() > 0)
 				{{-- checkbox_multiple --}}
 				<div class="row mb-3 {{ $requiredClass }}" style="margin-top: -10px;">
-					<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+					<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 						{{ $field->name }}
 						@if ($field->required == 1)
 							<sup>*</sup>
 						@endif
 					</label>
 					<?php $cmFieldStyle = ($field->options->count() > 12) ? ' style="height: 250px; overflow-y: scroll;"' : ''; ?>
-					<div class="col-md-8"{!! $cmFieldStyle !!}>
+					<div class="col-md-12"{!! $cmFieldStyle !!}>
 						@foreach ($field->options as $option)
 							<?php
 							// Get the default value
@@ -87,13 +87,13 @@
 			
 			{{-- file --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<div class="mb10">
 						<input id="{{ $fieldId }}" name="{{ $fieldName }}" type="file" class="file{{ $errorClass }}">
 					</div>
@@ -115,13 +115,13 @@
 			@if ($field->options->count() > 0)
 				{{-- radio --}}
 				<div class="row mb-3 {{ $requiredClass }}">
-					<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+					<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 						{{ $field->name }}
 						@if ($field->required == 1)
 							<sup>*</sup>
 						@endif
 					</label>
-					<div class="col-md-8">
+					<div class="col-md-12">
 						@foreach ($field->options as $option)
 							<div class="form-check pt-2">
 								<input id="{{ $fieldId }}"
@@ -145,13 +145,13 @@
 			
 			{{-- select --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label{{ $errorClass }}" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label{{ $errorClass }}" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
                     <?php
                     	$select2Type = ($field->options->count() <= 10) ? 'selecter' : 'large-data-selecter';
                     ?>
@@ -183,13 +183,13 @@
 			
 			{{-- textarea --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<textarea class="form-control{{ $errorClass }}"
 							  id="{{ $fieldId }}"
 							  name="{{ $fieldName }}"
@@ -204,13 +204,13 @@
 			
 			{{-- url --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<input id="{{ $fieldId }}"
 						   name="{{ $fieldName }}"
 						   type="text"
@@ -225,13 +225,13 @@
 			
 			{{-- number --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<input id="{{ $fieldId }}"
 						   name="{{ $fieldName }}"
 						   type="number"
@@ -246,13 +246,13 @@
 			
 			{{-- date --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<input id="{{ $fieldId }}"
 						   name="{{ $fieldName }}"
 						   type="text"
@@ -269,13 +269,13 @@
 			
 			{{-- date_time --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<input id="{{ $fieldId }}"
 						   name="{{ $fieldName }}"
 						   type="text"
@@ -292,13 +292,13 @@
 			
 			{{-- date_range --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<input id="{{ $fieldId }}"
 						   name="{{ $fieldName }}"
 						   type="text"
@@ -315,13 +315,13 @@
 			
 			{{-- text --}}
 			<div class="row mb-3 {{ $requiredClass }}">
-				<label class="col-md-3 col-form-label" for="{{ $fieldId }}">
+				<label class="col-md-12 text-start col-form-label" for="{{ $fieldId }}">
 					{{ $field->name }}
 					@if ($field->required == 1)
 						<sup>*</sup>
 					@endif
 				</label>
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<input id="{{ $fieldId }}"
 						   name="{{ $fieldName }}"
 						   type="text"

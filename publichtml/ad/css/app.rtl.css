@@ -14572,7 +14572,7 @@ html {
 }
 
 body {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 0.85rem;
 	font-weight: normal;
 	line-height: 1.5;
@@ -15361,7 +15361,7 @@ input[type="button"].btn-block {
 }
 
 .btn-post {
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-weight: normal;
 	text-transform: uppercase;
 }
@@ -15496,7 +15496,7 @@ fieldset[disabled] .btn-tw.focus {
 /* TYPOGRAPHY
 /* =============================================================== */
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-weight: normal;
 	margin: 0;
 	padding-bottom: 15px;
@@ -15625,7 +15625,7 @@ h6 {
 }
 
 .title-5 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	border-bottom: 1px solid #e6e6e6;
 	color: #080808;
 	font-size: 16px;
@@ -15638,7 +15638,7 @@ h6 {
 
 .title-6 {
 	font-size: 4rem;
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: 300;
 	line-height: 1;
 	padding-bottom: 0;
@@ -15824,7 +15824,7 @@ label {
 
 .intro h1, .intro-title {
 	color: #fff;
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 2.5rem;
 	line-height: normal;
 	font-weight: bold;
@@ -16132,7 +16132,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 		line-height: normal;
 		padding: 12px;
 		font-size: 12px;
-		font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+		;
 	}
 	
 	.navbar.navbar-site .navbar-nav > li.lang-menu .caret, .navbar.navbar-light .navbar-nav > li.lang-menu .caret {
@@ -16224,7 +16224,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 		text-transform: uppercase;
 		font-weight: 500;
 		letter-spacing: 0.5px;
-		font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+		;
 		font-size: 13px;
 		padding: 15px 15px !important;
 	}
@@ -16371,7 +16371,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 
 .navbar-nav .flag-menu a {
 	padding: 8px 10px;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 }
 
 .modalHasList .flag-icon {
@@ -16458,7 +16458,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 
 .footer-title {
 	color: #000;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 15px;
 	font-weight: 700;
 	margin-bottom: 10px;
@@ -16998,7 +16998,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 .item-carousel .item-name {
 	clear: both;
 	display: block;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 14px;
 	font-weight: normal;
 	line-height: 16px;
@@ -17122,7 +17122,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 
 .iconbox-wrap-text {
 	color: #aaa;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 16px;
 	text-transform: uppercase;
 }
@@ -17163,7 +17163,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 }
 
 .page-bottom-info-content h1 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: 500;
 	letter-spacing: 1px;
 	margin-bottom: 15px;
@@ -17272,7 +17272,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 }
 
 .f-category h6 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 13px;
 	font-weight: 500;
 	letter-spacing: 0;
@@ -17360,7 +17360,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 .featured-list-slider .item .item-name {
 	display: block;
 	line-height: normal;
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 13px;
 	font-weight: 500;
 	letter-spacing: 0;
@@ -17776,7 +17776,7 @@ nav.slider-nav a.next {
 
 .tab-lite .nav-tabs > li > a {
 	border-radius: 0 !important;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: normal;
@@ -18050,11 +18050,11 @@ nav.slider-nav a.next {
 	-moz-transition: all 0.25s ease;
 	-o-transition: all 0.25s ease;
 	transition: all 0.25s ease;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 }
 
 .category-list:not(.make-compact):not(.make-grid) .item-list .item-price {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: bold;
 	font-size: 1.3rem;
 }
@@ -18313,7 +18313,7 @@ nav.slider-nav a.next {
 .cornerRibbons a {
 	color: #fff;
 	display: block;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 12px;
 	font-weight: normal;
 	text-align: center;
@@ -19172,7 +19172,7 @@ hr.thin {
 }
 
 .items-details-wrapper > h2 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: bold;
 }
 
@@ -19414,7 +19414,7 @@ h1.trtri span {
 }
 
 .card-header {
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 1rem;
 	text-transform: uppercase;
 }
@@ -19538,7 +19538,7 @@ h1.trtri span {
 }
 
 .posts-action {
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 }
 
 .posts-action li i {
@@ -20032,7 +20032,7 @@ div.login-box .panel-footer label {
 .user-panel-sidebar ul li a {
 	background: #ffffff;
 	display: block;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	color: #2a3744;
 	font-size: 12px;
 	height: auto;
@@ -20236,7 +20236,7 @@ td.items-details-td {
 }
 
 .title-1 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: 300;
 	text-transform: uppercase;
 	display: block;
@@ -20843,7 +20843,7 @@ td.items-details-td {
 	border: solid 1px var(--border-color);
 	height: 44px;
 	line-height: 44px;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	background-color: #fafafa;
 	border-top: none;
 }
@@ -21253,7 +21253,7 @@ td.items-details-td {
 .card-event .event-badges .badge {
 	font-weight: lighter;
 	letter-spacing: 0.3px;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	padding: 3px 6px;
 	border-radius: 2px;
 }
@@ -21272,7 +21272,7 @@ td.items-details-td {
 	background: #f3f3f3;
 	line-height: 1;
 	color: #000;
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	padding: 6px 14px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -21649,7 +21649,7 @@ td.items-details-td {
 	margin: 0 auto;
 	text-align: center;
 	text-transform: uppercase;
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: bold;
 }
 
@@ -22098,7 +22098,7 @@ img {
 
 .panel-details ul li {
 	margin-bottom: 3px;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 }
 
 .panel-details ul li strong {
@@ -22208,7 +22208,6 @@ img {
 }
 
 .tooltip-inner {
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif !important;
 	font-size: 12px !important;
 }
 
@@ -22295,7 +22294,7 @@ ul.list-number li {
 	padding-right: 10px;
 	text-transform: capitalize;
 	width: auto;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 }
 
 .themeControll .nicescroll-cursors {
@@ -22471,7 +22470,7 @@ table.checkboxtable td, table.checkboxtable th {
 }
 
 .message-list .list-group-item .list-box-content .title {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-weight: 700;
 	color: #292b2c;
 	font-size: .875rem;
@@ -23101,7 +23100,7 @@ table.checkboxtable td, table.checkboxtable th {
 
 .demo-intro .intro-title {
 	color: #fff;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 48px;
 	line-height: 1.4;
 	font-weight: lighter;
@@ -24848,7 +24847,7 @@ body,
 /* dropdown-items-links */
 ul.dropdown-menu.user-menu > li a,
 li.lang-menu ul.dropdown-menu > li a {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: .84rem;
 	font-weight: 400;
 }
@@ -24904,7 +24903,7 @@ ul li, ol li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 }
 
 .btn-sm {
@@ -25028,7 +25027,7 @@ img {
 
 /* Sidebar box */
 .card-header {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 1rem;
 	text-transform: none;
 }
@@ -25806,7 +25805,7 @@ ul.installation li i {
 .ribbon-horizontal span {
 	position: relative;
 	padding: 0 10px 0 4px;
-	font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+	;
 	font-size: 12px;
 	font-weight: normal;
 	text-align: center;
@@ -26353,7 +26352,7 @@ aside .inner-box.enable-long-words {
 }
 
 .mobile-filter-bar {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 }
 
 .form-group.required > sup,
@@ -26961,7 +26960,7 @@ pre {
 
 /* .btn-listing */
 .btn-listing {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	
 	font-size: 14px;
 	font-weight: bold;
 	text-transform: none;

@@ -120,6 +120,7 @@ $query = (array)data_get($apiExtraPosts, 'preSearch.query');
 													</div>
 													
 													<div class="col-md-2 text-end text-center-xs price-box">
+														@if(config('settings.show_price', false))
 														<h4 class="item-price">
 															<?php $postPrice = data_get($post, 'price'); ?>
 															@if (is_numeric($postPrice) && $postPrice > 0)
@@ -130,6 +131,7 @@ $query = (array)data_get($apiExtraPosts, 'preSearch.query');
 																{!! \App\Helpers\Number::money(' --') !!}
 															@endif
 														</h4>
+														@endif
 													</div>
 												</div>
 											</div>

@@ -137,6 +137,7 @@ $displayModes ??= [];
 							</ul>
 							
 							<div class="tab-filter pb-2">
+								@if(config('settings.show_price', false))
 								{{-- OrderBy Desktop --}}
 								<select id="orderBy" title="sort by" class="niceselecter select-sort-by small" data-style="btn-select" data-width="auto">
 									@if (isset($orderByOptions) && !empty($orderByOptions))
@@ -150,6 +151,7 @@ $displayModes ??= [];
 										@endforeach
 									@endif
 								</select>
+								@endif
 							</div>
 
 						</div>

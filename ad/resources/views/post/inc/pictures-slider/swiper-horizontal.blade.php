@@ -1,6 +1,6 @@
 {{-- Swiper - Horizontal Thumbnails --}}
 <div class="gallery-container">
-	@if (!empty($price))
+	@if (!empty($price) && config('settings.show_price', false))
 		<div class="p-price-tag">{!! $price !!}</div>
 	@endif
 	<div class="swiper main-gallery">

@@ -70,6 +70,7 @@ trait StoreTrait
 		// Other fields
 		$post->country_code = $request->input('country_code', config('country.code'));
 		$post->user_id = (isset($user) && isset($user->id)) ? $user->id : null;
+		$post->address = $request->input('address');
 		$post->lat = $city->latitude;
 		$post->lon = $city->longitude;
 		$post->ip_addr = $request->input('ip_addr', Ip::get());

@@ -86,9 +86,11 @@ $totalPosts ??= 0;
 			<div class="col-sm-3 col-12 text-end price-box" style="white-space: nowrap;">
 				<div class="row w-100">
 					<div class="col-12 m-0 p-0 d-flex justify-content-end">
+						@if(config('settings.show_price', false))
 						<h2 class="item-price">
 							{!! getPriceInfo(data_get($post, 'price'), data_get($post, 'category.type') ?? null) !!}
 						</h2>
+						@endif
 					</div>
 					<div class="col-12 m-0 p-0 d-flex justify-content-end">
 						@if (!empty(data_get($post, 'latestPayment.package')))

@@ -23,7 +23,7 @@
 			></button>
 		@endforelse
 	</div>
-	@if (!empty($price))
+	@if (!empty($price) && config('settings.show_price', false))
 		<div class="p-price-tag">{!! $price !!}</div>
 	@endif
 	<div class="carousel-inner">
