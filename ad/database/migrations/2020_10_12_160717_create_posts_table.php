@@ -33,8 +33,8 @@ class CreatePostsTable extends Migration
 			$table->boolean('phone_hidden')->nullable()->default('0');
 			$table->string('address', 191)->nullable();
 			$table->bigInteger('city_id')->unsigned()->nullable();
-			$table->float('lon')->nullable()->comment('longitude in decimal degrees (wgs84)');
-			$table->float('lat')->nullable()->comment('latitude in decimal degrees (wgs84)');
+			$table->string('lon')->nullable()->comment('longitude in decimal degrees (wgs84)');
+			$table->string('lat')->nullable()->comment('latitude in decimal degrees (wgs84)');
 			$table->string('ip_addr', 50)->nullable();
 			$table->integer('visits')->unsigned()->nullable()->default('0');
 			$table->string('email_token', 32)->nullable();

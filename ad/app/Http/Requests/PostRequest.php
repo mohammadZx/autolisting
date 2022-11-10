@@ -143,9 +143,7 @@ class PostRequest extends Request
 	 */
 	public function rules()
 	{
-		$guard = isFromApi() ? 'sanctum' : null;
-		$authFields = array_keys(getAuthFields());
-		
+		$guard = isFromApi() ? 'sanctum' : null;	
 		$rules = [];
 		
 		$rules['category_id'] = ['required', 'not_in:0'];
@@ -175,9 +173,10 @@ class PostRequest extends Request
 			new BlacklistWordRule(),
 		];
 		$rules['contact_name'] = ['required', new BetweenRule(2, 200)];
-		$rules['auth_field'] = ['required', Rule::in($authFields)];
 		$rules['phone'] = ['max:30'];
 		$rules['phone_country'] = ['required_with:phone'];
+		$rules['latitude'] = ['required'];
+		$rules['longitude'] = ['required'];
 		$rules['city_id'] = ['required', 'not_in:0'];
 		
 		
@@ -271,13 +270,7 @@ class PostRequest extends Request
 		
 		$phoneIsEnabledAsAuthField = (config('settings.sms.enable_phone_as_auth_field') == '1');
 		$phoneNumberIsRequired = ($phoneIsEnabledAsAuthField && $this->input('auth_field') == 'phone');
-		
-		// email
-		$emailIsRequired = (!$phoneNumberIsRequired);
-		if ($emailIsRequired) {
-			$rules['email'][] = 'required';
-		}
-		$rules = $this->validEmailRules('email', $rules);
+	
 		
 		// phone
 		if ($phoneNumberIsRequired) {

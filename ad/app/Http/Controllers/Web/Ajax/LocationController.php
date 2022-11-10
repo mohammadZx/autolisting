@@ -213,6 +213,8 @@ class LocationController extends FrontController
 				$citiesArr[] = [
 					'id'   => $city->id,
 					'text' => $text,
+					'lon' => $city->longitude,
+					'lat' =>$city->latitude
 				];
 			}
 		}
@@ -247,7 +249,7 @@ class LocationController extends FrontController
 					$text .= ', ' . $city->subAdmin1->name;
 				}
 			}
-			$cityArr = ['id' => $city->id, 'text' => $text];
+			$cityArr = ['id' => $city->id, 'text' => $text, 'lon' => $city->longitude, 'lat' =>$city->latitude];
 		} else {
 			$cityArr = ['id' => 0, 'text' => t('select_a_city', [], 'global', request()->get('languageCode'))];
 		}

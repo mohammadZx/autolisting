@@ -34,6 +34,7 @@ use App\Models\PostType;
 use App\Models\Scopes\VerifiedScope;
 use App\Http\Controllers\Web\FrontController;
 use App\Models\Scopes\ReviewedScope;
+use App\Models\SubAdmin1;
 use App\Observers\Traits\PictureTrait;
 use Illuminate\Http\Request;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
@@ -169,7 +170,7 @@ class CreateController extends FrontController
 		$this->shareWizardMenu($request);
 		
 		$postInput = $request->session()->get('postInput');
-		
+		view()->share('provinces', SubAdmin1::where('country_code', config('country.code'))->get());
 		return appView('post.createOrEdit.multiSteps.create', compact('postInput'));
 	}
 	
@@ -210,6 +211,8 @@ class CreateController extends FrontController
 		}
 		
 		$request->session()->put('postInput', $postInput);
+
+		
 		
 		// Get the next URL
 		$nextUrl = url('posts/create/photos');
@@ -264,6 +267,8 @@ class CreateController extends FrontController
 		
 		view()->share('nextStepUrl', $nextUrl);
 		view()->share('nextStepLabel', $nextStepLabel);
+
+		
 		
 		return appView('post.createOrEdit.multiSteps.photos.create', compact('picturesInput'));
 	}

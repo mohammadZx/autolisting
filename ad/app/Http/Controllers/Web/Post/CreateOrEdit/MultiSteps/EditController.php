@@ -26,6 +26,7 @@ use App\Models\Category;
 use App\Http\Controllers\Web\FrontController;
 use App\Models\Scopes\ReviewedScope;
 use App\Models\Scopes\VerifiedScope;
+use App\Models\SubAdmin1;
 use Illuminate\Http\Request;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
 
@@ -130,7 +131,7 @@ class EditController extends FrontController
 		// Meta Tags
 		MetaTag::set('title', t('update_my_listing'));
 		MetaTag::set('description', t('update_my_listing'));
-		
+		view()->share('provinces', SubAdmin1::where('country_code', config('country.code'))->get());
 		return appView('post.createOrEdit.multiSteps.edit', $data);
 	}
 	

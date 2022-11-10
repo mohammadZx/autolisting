@@ -195,14 +195,45 @@
 											</div>
 										@endif
 									
-										{{-- city_id --}}
-										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
-										<div id="cityBox" class="row mb-3 required">
-											<label class="col-md-12 text-start col-form-label{{ $cityIdError }}" for="city_id">{{ t('city') }} <sup>*</sup></label>
+
+										{{-- province --}}
+										<?php $provinceError = (isset($errors) && $errors->has('province_id')) ? ' is-invalid' : ''; ?>
+										<div id="provinceBox" class="row mb-3 required">
+											<label class="col-md-12 text-start col-form-label{{ $provinceError }}" for="province_id">{{ t('province') }} <sup>*</sup></label>
 											<div class="col-md-12">
-												<select id="cityId" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
-													<option value="0" {{ (!old('city_id') || old('city_id')==0) ? 'selected="selected"' : '' }}>
+												<select id="province_id" name="province_id" class="form-control large-data-selecter{{ $provinceError }}">
+													<option value="0" {{ (!old('province_id') || old('province_id')==0) ? 'selected="selected"' : '' }}>
+														{{ t('select_a_province') }}
+													</option>
+													@foreach($provinces as $province)
+													<option value="{{$province->code}}" {{ (old('province_id') == $province->id) ? 'selected="selected"' : '' }}>{{$province->name}}</option>
+													@endforeach
+												</select>
+											</div>
+										</div>
+
+										{{-- city_s1 --}}
+										<?php $CityS1Error = (isset($errors) && $errors->has('city_s1_id')) ? ' is-invalid' : ''; ?>
+										<div id="cityS1Box" class="row mb-3 required  d-none">
+											<label class="col-md-12 text-start col-form-label{{ $CityS1Error }}" for="city_s1_id">{{ t('city') }} <sup>*</sup></label>
+											<div class="col-md-12">
+												<select id="city_s1_id" name="city_s1_id" class="form-control large-data-selecter{{ $CityS1Error }}">
+													<option value="0" {{ (!old('city_s1_id') || old('city_s1_id')==0) ? 'selected="selected"' : '' }}>
 														{{ t('select_a_city') }}
+													</option>
+												</select>
+											</div>
+										</div>
+
+
+										{{-- part city_s2 --}}
+										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
+										<div id="cityBox" class="row mb-3 required d-none">
+											<label class="col-md-12 text-start col-form-label{{ $cityIdError }}" for="city_id">{{ t('part') }} <sup>*</sup></label>
+											<div class="col-md-12">
+												<select id="cityS2Id" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
+													<option value="0" {{ (!old('city_id') || old('city_id')==0) ? 'selected="selected"' : '' }}>
+														{{ t('select_a_part') }}
 													</option>
 												</select>
 											</div>
@@ -218,6 +249,19 @@
 												class="form-control input-md{{ $addressError }}"
 												type="text"
 												value="{{ old('address') }}">
+											</div>
+										</div>
+
+										{{-- map  --}}
+										<?php
+										$lat = (isset($errors) && $errors->has('latitude')) ? ' is-invalid' : '';
+										$lon = (isset($errors) && $errors->has('longitude')) ? ' is-invalid' : '';
+										?>
+										<div id="map-box" class="row mb-3 required {{$lat }} {{$lon}}">
+											<div class="col-md-12">
+												<input type="hidden" name="latitude" value="{{ old('latitude') }}"  id="latitude">                  
+												<input type="hidden" name="longitude" value="{{ old('longitude') }}" id="longitude" >
+												<div id="utf_single_listingmap" data-lat="{{ old('latitude', '35.715298') }}" data-lon="{{ old('longitude', '51.404343') }}"></div>
 											</div>
 										</div>
 										
@@ -475,9 +519,16 @@
 @endsection
 
 @section('after_styles')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css">
 @endsection
 
 @section('after_scripts')
+
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+
+
 @endsection
 
 @includeFirst([config('larapen.core.customizedViewPath') . 'post.createOrEdit.inc.form-assets', 'post.createOrEdit.inc.form-assets'])

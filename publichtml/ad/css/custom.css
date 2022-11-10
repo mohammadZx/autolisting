@@ -25,3 +25,8 @@ body,h1,h2,h3,h4,h5,h6,p,a,div,table,tr,td,tbody,tfoot,caption, select,input,opt
 .main-logo {
     width: 150px;
   }
+
+  #utf_single_listingmap{
+	min-height: 500px;
+}
+

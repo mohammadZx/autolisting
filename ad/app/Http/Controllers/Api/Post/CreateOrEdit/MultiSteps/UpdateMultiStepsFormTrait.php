@@ -91,10 +91,10 @@ trait UpdateMultiStepsFormTrait
 		$post->negotiable = $request->input('negotiable');
 		$post->phone_hidden = $request->input('phone_hidden');
 		$post->address = $request->input('address');
-		
+	
 		// Other fields
-		$post->lat = $city->latitude;
-		$post->lon = $city->longitude;
+		$post->lat = $request->latitude;
+		$post->lon = $request->longitude;
 		$post->ip_addr = $request->input('ip_addr', Ip::get());
 		
 		// Email verification key generation
@@ -109,8 +109,11 @@ trait UpdateMultiStepsFormTrait
 			$post->phone_verified_at = null;
 		}
 		
+	
 		// Save
 		$post->save();
+
+	
 		
 		$data = [
 			'success' => true,

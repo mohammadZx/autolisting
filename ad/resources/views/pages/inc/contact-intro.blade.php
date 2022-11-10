@@ -22,18 +22,4 @@
 
 @section('after_scripts')
 	@parent
-	@if (config('services.googlemaps.key'))
-	<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemaps.key') }}" type="text/javascript"></script>
-	<script>
-		$(document).ready(function () {
-			{{--
-			let mapUrl = '{{ addslashes($mapUrl) }}';
-			/* console.log(mapUrl); */
-			
-			let iframe = document.getElementById('googleMaps');
-			iframe.setAttribute('src', mapUrl);
-			--}}
-		});
-	</script>
-	@endif
 @endsection

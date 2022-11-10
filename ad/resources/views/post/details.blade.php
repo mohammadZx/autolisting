@@ -563,10 +563,6 @@ if (!session()->has('emailVerificationSent') && !session()->has('phoneVerificati
 @endsection
 
 @section('after_scripts')
-    @if (config('services.googlemaps.key'))
-		{{-- More Info: https://developers.google.com/maps/documentation/javascript/versions --}}
-        <script async src="https://maps.googleapis.com/maps/api/js?v=weekly&key={{ config('services.googlemaps.key') }}"></script>
-    @endif
     
 	<script>
 		{{-- Favorites Translation --}}

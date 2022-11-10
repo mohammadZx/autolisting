@@ -12,6 +12,10 @@ return [
     */
     'login/register' => 'ورود/ثبت نام',
     'address' => 'آدرس',
+    'province' => 'استان',
+    'select_a_province' => 'یک استان را انتخاب کنید',
+    'part' => 'محدوده',
+    'select_a_part' => 'یک بخش را انتخاب کنید',
     'type address completely' => 'آدرس دقیق را وارد کنید',
 	'no_categories_found' => 'دسته بندی یافت نشد',
 	'no_cities_found' => 'شهر یافت نشد',
