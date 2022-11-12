@@ -73,6 +73,10 @@ class CategoryController extends BaseController
 		// Open Graph
 		$this->og->title($title)->description($description)->type('website');
 		view()->share('og', $this->og);
+
+		if(count($apiResult['data']) == 0){
+			return abort(404);
+		}
 		
 		return appView('search.results', compact('apiMessage', 'apiResult', 'apiExtra'));
 	}
