@@ -300,6 +300,12 @@
 										
 									</div>
 								</div>
+
+								<div id="map-box" class="row mb-3 required">
+									<div class="col-md-12">
+										<div id="utf_single_listingmap" data-lat="{{data_get($post, 'lat')}}" data-lon="{{data_get($post, 'lon') }}"></div>
+									</div>
+								</div>
 								
 								@if (config('plugins.reviews.installed'))
 									@if (view()->exists('reviews::comments'))
@@ -554,6 +560,7 @@ if (!session()->has('emailVerificationSent') && !session()->has('phoneVerificati
 @endsection
 
 @section('after_styles')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
 @endsection
 
 @section('before_scripts')
@@ -563,7 +570,7 @@ if (!session()->has('emailVerificationSent') && !session()->has('phoneVerificati
 @endsection
 
 @section('after_scripts')
-    
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 	<script>
 		{{-- Favorites Translation --}}
         var lang = {
@@ -607,5 +614,24 @@ if (!session()->has('emailVerificationSent') && !session()->has('phoneVerificati
 				}
             }
 		});
+
+			var theme = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+			var lat = $('#utf_single_listingmap').data('lat');
+			var lon = $('#utf_single_listingmap').data('lon');
+			var macarte = null;
+			var marker;
+			var popup = L.popup();
+
+			function initMap(){
+				macarte = L.map('utf_single_listingmap').setView([lat, lon], 15);
+				marker = L.marker({lat, lon}).addTo(macarte)
+				macarte.addLayer(marker);
+				L.tileLayer(theme, {}).addTo(macarte);
+			}
+
+			$(document).ready(function(){
+				initMap();
+			})
+
 	</script>
 @endsection

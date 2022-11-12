@@ -212,19 +212,6 @@
 											</div>
 										</div>
 
-										{{-- city_s1 --}}
-										<?php $CityS1Error = (isset($errors) && $errors->has('city_s1_id')) ? ' is-invalid' : ''; ?>
-										<div id="cityS1Box" class="row mb-3 required  d-none">
-											<label class="col-md-12 text-start col-form-label{{ $CityS1Error }}" for="city_s1_id">{{ t('city') }} <sup>*</sup></label>
-											<div class="col-md-12">
-												<select id="city_s1_id" name="city_s1_id" class="form-control large-data-selecter{{ $CityS1Error }}">
-													<option value="0" {{ (!old('city_s1_id') || old('city_s1_id')==0) ? 'selected="selected"' : '' }}>
-														{{ t('select_a_city') }}
-													</option>
-												</select>
-											</div>
-										</div>
-
 
 										{{-- part city_s2 --}}
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
@@ -265,28 +252,7 @@
 											</div>
 										</div>
 										
-										{{-- tags --}}
-										<?php $tagsError = (isset($errors) && $errors->has('tags.*')) ? ' is-invalid' : ''; ?>
-										<div class="row mb-3">
-											<label class="col-md-12 text-start col-form-label{{ $tagsError }}" for="tags">{{ t('Tags') }}</label>
-											<div class="col-md-12">
-												<select id="tags" name="tags[]" class="form-control tags-selecter" multiple="multiple">
-													<?php $tags = old('tags', data_get($postInput, 'tags')); ?>
-													@if (!empty($tags))
-														@foreach($tags as $iTag)
-															<option selected="selected">{{ $iTag }}</option>
-														@endforeach
-													@endif
-												</select>
-												<div class="form-text text-muted">
-													{!! t('tags_hint', [
-															'limit' => (int)config('settings.single.tags_limit', 15),
-															'min'   => (int)config('settings.single.tags_min_length', 2),
-															'max'   => (int)config('settings.single.tags_max_length', 30)
-														]) !!}
-												</div>
-											</div>
-										</div>
+									
 										
 										{{-- is_permanent --}}
 										@if (config('settings.single.permanent_listings_enabled') == '3')
@@ -520,14 +486,91 @@
 
 @section('after_styles')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css">
 @endsection
 
 @section('after_scripts')
 
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
 
+<script>
+	var theme = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+			var lat = $('#utf_single_listingmap').data('lat');
+			var lon = $('#utf_single_listingmap').data('lon');
+			var macarte = null;
+			var marker;
+			var popup = L.popup();
+
+			function initMap(){
+				macarte = L.map('utf_single_listingmap').setView([lat, lon], 15);
+				marker = L.marker({lat, lon}).addTo(macarte)
+				macarte.addLayer(marker);
+				L.tileLayer(theme, {}).addTo(macarte);
+				macarte.on('click', onMapClick);
+			}
+
+
+			function onMapClick(e) {
+				macarte.removeLayer(marker)
+				marker = L.marker(e.latlng).addTo(macarte)
+				macarte.addLayer(marker);
+				$('#latitude').val(e.latlng.lat)
+				$('#longitude').val(e.latlng.lng)
+			}
+
+			
+	
+
+			$(document).ready(function(){
+				initMap();
+
+				
+				$('#province_id').select2();
+				$('#cityS2Id').select2();
+			
+				$('#province_id').on('change', function(){
+
+					$('#cityBox').removeClass('d-none')
+
+					$.ajax({
+						method: 'POST',
+						url: siteUrl + '/ajax/city',
+						data: {
+							code: $(this).val()
+						}
+					}).done(function (xhr) {
+						$('#cityS2Id').empty()
+						$('#cityS2Id').append('<option selected value="0">یک محدوده را انتخاب کنید</option>');
+						for(var n of xhr){
+							$('#cityS2Id').append('<option data-lat="'+ n.latitude  +'" data-lon="'+ n.longitude +'" value="' + n.id + '">' + n.name + '</option>').val(n.id);
+						}
+					});
+
+					$('#cityS2Id').select2();
+				})
+
+
+
+
+				$('#cityS2Id').on('change', function(e) {
+					res = $(this).select2('data').find(x => x.id == $(this).val())
+					if(!res.element.getAttribute('data-lat') || !res.element.getAttribute('data-lon')) return;
+	
+					var lat = res.element.getAttribute('data-lat') ;
+					var lon = res.element.getAttribute('data-lon');
+	
+					$('#latitude').val(lat);
+					$('#longitude').val(lon);
+	
+					macarte.setView([lat, lon], 15)
+					macarte.removeLayer(marker)
+					marker = L.marker({lat, lon}).addTo(macarte)
+					macarte.addLayer(marker);
+					
+				})
+
+			});
+			
+</script>
 
 @endsection
 

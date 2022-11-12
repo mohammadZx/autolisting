@@ -19,7 +19,7 @@ class CreatePackagesTable extends Migration
 			$table->text('short_name')->nullable()->comment('In country language');
 			$table->enum('ribbon', ['red', 'orange', 'green'])->nullable();
 			$table->boolean('has_badge')->unsigned()->nullable()->default('0');
-			$table->decimal('price', 10, 2)->unsigned()->nullable();
+			$table->bigInteger('price')->unsigned()->nullable();
 			$table->string('currency_code', 3)->nullable();
 			$table->integer('promo_duration')->nullable()->default('30')->comment('In days');
 			$table->integer('duration')->nullable()->unsigned()->default('30')->comment('In days');

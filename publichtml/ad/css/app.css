@@ -2035,7 +2035,7 @@ label {
 /* CUSTOMIZE NAVBAR
 /* ================================================================== */
 .logo, .logo-title {
-	font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
+	
 	font-size: 28px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -3073,7 +3073,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 
 /* cat listing */
 .cat-list h3, .title-3 {
-	font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
+	
 	font-weight: bold;
 	text-transform: uppercase;
 }

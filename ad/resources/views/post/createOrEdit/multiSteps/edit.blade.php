@@ -200,30 +200,18 @@ if ($post->category) {
 										<div id="provinceBox" class="row mb-3 required">
 											<label class="col-md-12 text-start col-form-label{{ $provinceError }}" for="province_id">{{ t('province') }} <sup>*</sup></label>
 											<div class="col-md-12">
-												<select id="province_id" name="province_id" class="form-control large-data-selecter{{ $provinceError }}">
-													<option value="0" {{ (!old('province_id') || old('province_id')==0) ? 'selected="selected"' : '' }}>
+												<select id="province_id" value="{{$post->city->subAdmin1->code}}" name="province_id" class="form-control large-data-selecter{{ $provinceError }}">
+													<option value="0" {{ (!old('province_id' , $post->city->subAdmin1->code) || old('province_id', $post->city->subAdmin1->code)==0) ? 'selected="selected"' : '' }}>
 														{{ t('select_a_province') }}
 													</option>
 													@foreach($provinces as $province)
-													<option value="{{$province->code}}" {{ (old('province_id') == $province->id) ? 'selected="selected"' : '' }}>{{$province->name}}</option>
+													<option value="{{$province->code}}" {{ (old('province_id', $post->city->subAdmin1->code) == $province->id) ? 'selected="selected"' : '' }}>{{$province->name}}</option>
 													@endforeach
 												</select>
 											</div>
 										</div>
 
-										{{-- city_s1 --}}
-										<?php $CityS1Error = (isset($errors) && $errors->has('city_s1_id')) ? ' is-invalid' : ''; ?>
-										<div id="cityS1Box" class="row mb-3 required">
-											<label class="col-md-12 text-start col-form-label{{ $CityS1Error }}" for="city_s1_id">{{ t('city') }} <sup>*</sup></label>
-											<div class="col-md-12">
-												<select id="city_s1_id" name="city_s1_id" class="form-control large-data-selecter{{ $CityS1Error }}">
-													<option value="0" {{ (!old('city_s1_id') || old('city_s1_id')==0) ? 'selected="selected"' : '' }}>
-														{{ t('select_a_city') }}
-													</option>
-												</select>
-											</div>
-										</div>
-									
+					
 										{{-- part city_s2 --}}
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
 										<div id="cityBox" class="row mb-3 required">
@@ -231,10 +219,11 @@ if ($post->category) {
 												{{ t('part') }} <sup>*</sup>
 											</label>
 											<div class="col-md-12">
-												<select id="cityS2Id" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
-													<option value="0" {{ (!old('city_id') || old('city_id')==0) ? 'selected="selected"' : '' }}>
+												<select id="cityS2Id" value="{{$post->city->id}}" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
+													<option value="0">
 														{{ t('select_a_part') }}
 													</option>
+													<option selected="selected" value="{{$post->city->id}}" data-lat="" data-lon="">{{$post->city->name}}</option>
 												</select>
 											</div>
 										</div>
@@ -262,29 +251,6 @@ if ($post->category) {
 												<input type="hidden" name="latitude" value="{{ old('latitude', $post->lat) }}"  id="latitude">                  
 												<input type="hidden" name="longitude" value="{{ old('longitude', $post->lon) }}" id="longitude" >
 												<div id="utf_single_listingmap" data-lat="{{ old('latitude', $post->lat) }}" data-lon="{{ old('longitude', $post->lon) }}"></div>
-											</div>
-										</div>
-										
-										{{-- tags --}}
-										<?php $tagsError = (isset($errors) && $errors->has('tags.*')) ? ' is-invalid' : ''; ?>
-										<div class="row mb-3">
-											<label class="col-md-12 text-start col-form-label{{ $tagsError }}" for="tags">{{ t('Tags') }}</label>
-											<div class="col-md-12">
-												<select id="tags" name="tags[]" class="form-control tags-selecter" multiple="multiple">
-													<?php $tags = old('tags', $post->tags); ?>
-													@if (!empty($tags))
-														@foreach($tags as $iTag)
-															<option selected="selected">{{ $iTag }}</option>
-														@endforeach
-													@endif
-												</select>
-												<div class="form-text text-muted">
-													{!! t('tags_hint', [
-															'limit' => (int)config('settings.single.tags_limit', 15),
-															'min'   => (int)config('settings.single.tags_min_length', 2),
-															'max'   => (int)config('settings.single.tags_max_length', 30)
-														]) !!}
-												</div>
 											</div>
 										</div>
 										
@@ -440,7 +406,6 @@ if ($post->category) {
 
 @section('after_styles')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css">
 @endsection
 
 @section('after_scripts')
@@ -451,7 +416,85 @@ if ($post->category) {
 	</script>
 
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
+<script>
+	var theme = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+			var lat = $('#utf_single_listingmap').data('lat');
+			var lon = $('#utf_single_listingmap').data('lon');
+			var macarte = null;
+			var marker;
+			var popup = L.popup();
+
+			function initMap(){
+				macarte = L.map('utf_single_listingmap').setView([lat, lon], 15);
+				marker = L.marker({lat, lon}).addTo(macarte)
+				macarte.addLayer(marker);
+				L.tileLayer(theme, {}).addTo(macarte);
+				macarte.on('click', onMapClick);
+			}
+
+
+			function onMapClick(e) {
+				macarte.removeLayer(marker)
+				marker = L.marker(e.latlng).addTo(macarte)
+				macarte.addLayer(marker);
+				$('#latitude').val(e.latlng.lat)
+				$('#longitude').val(e.latlng.lng)
+			}
+
+			
+	
+
+			$(document).ready(function(){
+				initMap();
+
+				
+				$('#province_id').select2();
+				$('#cityS2Id').select2();
+			
+				$('#province_id').on('change', function(){
+
+					$('#cityBox').removeClass('d-none')
+
+					$.ajax({
+						method: 'POST',
+						url: siteUrl + '/ajax/city',
+						data: {
+							code: $(this).val()
+						}
+					}).done(function (xhr) {
+						$('#cityS2Id').empty()
+						$('#cityS2Id').append('<option selected value="0">یک محدوده را انتخاب کنید</option>');
+						for(var n of xhr){
+							$('#cityS2Id').append('<option data-lat="'+ n.latitude  +'" data-lon="'+ n.longitude +'" value="' + n.id + '">' + n.name + '</option>').val(n.id);
+						}
+					});
+
+					$('#cityS2Id').select2();
+				})
+
+
+
+
+				$('#cityS2Id').on('change', function(e) {
+					res = $(this).select2('data').find(x => x.id == $(this).val())
+					if(!res.element.getAttribute('data-lat') || !res.element.getAttribute('data-lon')) return;
+	
+					var lat = res.element.getAttribute('data-lat') ;
+					var lon = res.element.getAttribute('data-lon');
+	
+					$('#latitude').val(lat);
+					$('#longitude').val(lon);
+	
+					macarte.setView([lat, lon], 15)
+					macarte.removeLayer(marker)
+					marker = L.marker({lat, lon}).addTo(macarte)
+					macarte.addLayer(marker);
+					
+				})
+
+			});
+			
+</script>
 
 
 @endsection

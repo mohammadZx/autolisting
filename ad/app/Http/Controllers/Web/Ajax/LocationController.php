@@ -18,6 +18,7 @@ namespace App\Http\Controllers\Web\Ajax;
 use App\Models\City;
 use App\Models\SubAdmin1;
 use App\Http\Controllers\Web\FrontController;
+use App\Models\SubAdmin2;
 use Illuminate\Http\Request;
 
 class LocationController extends FrontController
@@ -327,5 +328,19 @@ class LocationController extends FrontController
 		];
 		
 		return response()->json($result, 200, [], JSON_UNESCAPED_UNICODE);
+	}
+
+
+
+
+	public function getSubAdmin2(Request $request){
+		$result = SubAdmin2::where('subadmin1_code', $request->code)->get();
+		return response()->json($result);
+	}
+
+
+	public function cities(Request $request){
+		$result = City::where('subadmin1_code', $request->code)->get();
+		return response()->json($result);
 	}
 }

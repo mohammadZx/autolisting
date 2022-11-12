@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
 			$table->string('title', 191);
 			$table->text('description');
 			$table->text('tags')->nullable();
-			$table->decimal('price', 17, 2)->unsigned()->nullable();
+			$table->bigInteger('price')->unsigned()->nullable();
 			$table->boolean('negotiable')->nullable()->default('0');
 			$table->string('contact_name', 191)->nullable();
 			$table->enum('auth_field', ['email', 'phone'])->nullable()->default('email');

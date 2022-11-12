@@ -475,8 +475,14 @@ Route::namespace('App\Http\Controllers\Web')
 						Route::get('countries/{countryCode}/admins/{adminType}', 'getAdmins');
 						Route::get('countries/{countryCode}/admins/{adminType}/{adminCode}/cities', 'getCities');
 						Route::get('countries/{countryCode}/cities/{id}', 'getSelectedCity');
+
+						Route::post('provinces', 'getSubAdmin2');
+						Route::post('city', 'cities');
+
+						
 						Route::post('countries/{countryCode}/cities/autocomplete', 'searchedCities');
 						Route::post('countries/{countryCode}/admin1/cities', 'getAdmin1WithCities');
+						
 					});
 				Route::controller(AjaxCategoryController::class)
 					->group(function ($router) {

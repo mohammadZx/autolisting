@@ -3633,12 +3633,12 @@ function genEmailContactBtn($post = null, bool $btnBlock = false, bool $iconOnly
 	$btnClass = '';
 	if (!auth()->check()) {
 		if (config('settings.single.guests_can_contact_authors') != '1') {
-			$btnLink = '#quickLogin';
+			$btnLink = '#forcelogin';
 		}
 	}
 	
 	if ($iconOnly) {
-		$out .= '<a href="' . $btnLink . '" data-bs-toggle="modal">';
+		$out .= '<a href="' . $btnLink . '" data-bs-toggle="modal" class="login-button" data-redirect="false" data-callback="afterLoginToContact">';
 		$out .= '<i class="far fa-envelope" data-bs-toggle="tooltip" title="' . t('Send a message') . '"></i>';
 	} else {
 		if ($btnBlock) {
@@ -3741,7 +3741,7 @@ function genPhoneNumberBtn($post, bool $btnBlock = false): string
 			$btnAttrModal = 'data-bs-toggle="modal"';
 			
 			$phone = $btnHint;
-			$btnLink = '#quickLogin';
+			$btnLink = '#forcelogin';
 			$btnAttr = $btnAttrModal;
 			$btnClass = '';
 			

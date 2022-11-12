@@ -59,30 +59,7 @@ $post ??= [];
 						</div>
 					@endif
 					
-					{{-- email --}}
-					@if ($isEmailCanBeHidden)
-						<input type="hidden" name="email" value="{{ $authUser->email ?? null }}">
-					@else
-						@php
-							$fromEmailError = (isset($errors) && $errors->has('email')) ? ' is-invalid' : '';
-						@endphp
-						<div class="mb-3 required">
-							<label class="control-label" for="email">{{ t('E-mail') }}
-								@if ($authFieldValue == 'email')
-									<sup>*</sup>
-								@endif
-							</label>
-							<div class="input-group">
-								<span class="input-group-text"><i class="far fa-envelope"></i></span>
-								<input id="fromEmail" name="email"
-									   type="text"
-									   class="form-control{{ $fromEmailError }}"
-									   placeholder="{{ t('eg_email') }}"
-									   value="{{ old('email', $authUser->email ?? null) }}"
-								>
-							</div>
-						</div>
-					@endif
+		
 					
 					{{-- phone --}}
 					@if ($isPhoneCanBeHidden)

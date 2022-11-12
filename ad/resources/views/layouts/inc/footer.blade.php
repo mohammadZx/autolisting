@@ -34,6 +34,7 @@ $socialAndAppsLinksAreEnabled = ($socialLinksAreEnabled || $appsLinksAreEnabled)
 						<div class="footer-col">
 							<h4 class="footer-title">{{ t('about_us') }}</h4>
 							<ul class="list-unstyled footer-nav">
+								{{t('footer_about')}}
 								@if (isset($pages) && $pages->count() > 0)
 									@foreach($pages as $page)
 										<li>
@@ -59,7 +60,8 @@ $socialAndAppsLinksAreEnabled = ($socialLinksAreEnabled || $appsLinksAreEnabled)
 						<div class="footer-col">
 							<h4 class="footer-title">{{ t('Contact and Sitemap') }}</h4>
 							<ul class="list-unstyled footer-nav">
-								<li><a href="{{ \App\Helpers\UrlGen::contact() }}"> {{ t('Contact') }} </a></li>
+								<li><a href="/contact-us"> {{ t('Contact') }} </a></li>
+								<li><a href="/about-us"> {{ t('about_us') }} </a></li>
 								<li><a href="{{ \App\Helpers\UrlGen::sitemap() }}"> {{ t('sitemap') }} </a></li>
 								@if (isset($countries) && $countries->count() > 1)
 									<li><a href="{{ \App\Helpers\UrlGen::countries() }}"> {{ t('countries') }} </a></li>

@@ -1,0 +1,10 @@
+{
+    "name": "zarinpal",
+    "version": "1.0",
+    "display_name": "زرین پال",
+    "description": "پرداخت امن با زرین پال",
+    "author": "Mohammad yazdani",
+    "category": "payment",
+    "has_installer": true,
+    "item_id": ""
+}
