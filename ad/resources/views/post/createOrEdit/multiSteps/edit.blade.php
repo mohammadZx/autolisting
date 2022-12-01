@@ -219,7 +219,7 @@ if ($post->category) {
 												{{ t('part') }} <sup>*</sup>
 											</label>
 											<div class="col-md-12">
-												<select id="cityS2Id" value="{{$post->city->id}}" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
+												<select id="cityS2Id" data-value="{{old('city_id', $post->city->id)}}" value="{{$post->city->id}}" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
 													<option value="0">
 														{{ t('select_a_part') }}
 													</option>
@@ -447,6 +447,10 @@ if ($post->category) {
 			$(document).ready(function(){
 				initMap();
 
+				if($('#province_id').val() && $('#province_id').val() != 0){
+					getProvinceCities($($('#province_id')))
+				}
+
 				
 				$('#province_id').select2();
 				$('#cityS2Id').select2();
@@ -454,12 +458,16 @@ if ($post->category) {
 				$('#province_id').on('change', function(){
 
 					$('#cityBox').removeClass('d-none')
+					getProvinceCities($(this))
+			
+				})
 
+				function getProvinceCities(obj){
 					$.ajax({
 						method: 'POST',
 						url: siteUrl + '/ajax/city',
 						data: {
-							code: $(this).val()
+							code: obj.val()
 						}
 					}).done(function (xhr) {
 						$('#cityS2Id').empty()
@@ -467,11 +475,14 @@ if ($post->category) {
 						for(var n of xhr){
 							$('#cityS2Id').append('<option data-lat="'+ n.latitude  +'" data-lon="'+ n.longitude +'" value="' + n.id + '">' + n.name + '</option>').val(n.id);
 						}
+
+						$('#cityS2Id').val($('#cityS2Id').data('value'))
+						$('#cityS2Id').trigger('change')
+						$('#cityS2Id').select2();
 					});
 
 					$('#cityS2Id').select2();
-				})
-
+				}
 
 
 

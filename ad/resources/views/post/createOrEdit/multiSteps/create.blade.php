@@ -201,7 +201,7 @@
 										<div id="provinceBox" class="row mb-3 required">
 											<label class="col-md-12 text-start col-form-label{{ $provinceError }}" for="province_id">{{ t('province') }} <sup>*</sup></label>
 											<div class="col-md-12">
-												<select id="province_id" name="province_id" class="form-control large-data-selecter{{ $provinceError }}">
+												<select id="province_id" data-value="{{old('province_id')}}" name="province_id" class="form-control large-data-selecter{{ $provinceError }}">
 													<option value="0" {{ (!old('province_id') || old('province_id')==0) ? 'selected="selected"' : '' }}>
 														{{ t('select_a_province') }}
 													</option>
@@ -215,11 +215,11 @@
 
 										{{-- part city_s2 --}}
 										<?php $cityIdError = (isset($errors) && $errors->has('city_id')) ? ' is-invalid' : ''; ?>
-										<div id="cityBox" class="row mb-3 required d-none">
+										<div id="cityBox" class="row mb-3 required @if(!old('city_id')) d-none @endif">
 											<label class="col-md-12 text-start col-form-label{{ $cityIdError }}" for="city_id">{{ t('part') }} <sup>*</sup></label>
 											<div class="col-md-12">
-												<select id="cityS2Id" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
-													<option value="0" {{ (!old('city_id') || old('city_id')==0) ? 'selected="selected"' : '' }}>
+												<select id="cityS2Id" data-value="{{old('city_id', 0)}}" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
+													<option value="0">
 														{{ t('select_a_part') }}
 													</option>
 												</select>
@@ -522,7 +522,11 @@
 
 			$(document).ready(function(){
 				initMap();
-
+				
+				if($('#province_id').val() && $('#province_id').val() != 0){
+					$('#cityBox').removeClass('d-none')
+					getProvinceCities($($('#province_id')))
+				}
 				
 				$('#province_id').select2();
 				$('#cityS2Id').select2();
@@ -530,12 +534,16 @@
 				$('#province_id').on('change', function(){
 
 					$('#cityBox').removeClass('d-none')
+					getProvinceCities($(this))
+					
+				})
 
+				function getProvinceCities(obj){
 					$.ajax({
 						method: 'POST',
 						url: siteUrl + '/ajax/city',
 						data: {
-							code: $(this).val()
+							code: obj.val()
 						}
 					}).done(function (xhr) {
 						$('#cityS2Id').empty()
@@ -543,10 +551,14 @@
 						for(var n of xhr){
 							$('#cityS2Id').append('<option data-lat="'+ n.latitude  +'" data-lon="'+ n.longitude +'" value="' + n.id + '">' + n.name + '</option>').val(n.id);
 						}
+
+						$('#cityS2Id').val($('#cityS2Id').data('value'))
+						$('#cityS2Id').trigger('change')
+						$('#cityS2Id').select2();
 					});
 
 					$('#cityS2Id').select2();
-				})
+				}
 
 
 

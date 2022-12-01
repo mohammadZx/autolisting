@@ -35,7 +35,7 @@ class BaseController extends Controller
 	public $errors = [];
 	
 	public $cacheExpiration = 3600; // In minutes (e.g. 60 * 60 for 1h)
-	public $perPage = 10;
+	public $perPage = 50;
 	
 	/**
 	 * BaseController constructor.

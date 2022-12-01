@@ -26,3 +26,16 @@ body,h1,h2,h3,h4,h5,h6,p,a,div,table,tr,td,tbody,tfoot,caption, select,input,opt
 	min-height: 500px;
 }
 
+
+
+.pkg.desc {
+    display: block;
+    font-size: 11px;
+    color: #6c6c6c;
+    margin-top: 3px;
+    max-width: 300px;
+  }
+
+  .btn.phoneBlock {
+    direction: ltr;
+  }

@@ -169,7 +169,7 @@ class ListingsPurge extends Command
 		if (!isVerifiedPost($post)) {
 			// Delete non-active items after '$this->unactivatedPostsExpiration' days
 			if ($today->diffInDays($post->created_at) >= $this->unactivatedPostsExpiration) {
-				$post->delete();
+			//	$post->delete();
 			}
 			
 			/*
@@ -311,7 +311,7 @@ class ListingsPurge extends Command
 			}
 			
 			// Delete
-			$post->delete();
+			//$post->delete();
 		}
 		
 		/*

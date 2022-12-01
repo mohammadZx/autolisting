@@ -25,7 +25,7 @@
             </style>
 
     <script>
-        var baseUrl = "http://127.0.0.1:8000/ad";
+        var baseUrl = "http://127.0.0.1/ad";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>

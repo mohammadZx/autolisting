@@ -283,7 +283,7 @@ class LocationController extends FrontController
 		// Get the Administrative Division's Cities
 		$cities = collect();
 		if (!empty($admin)) {
-			$limit = 59;
+			$limit = 1000;
 			$cacheId = $countryCode . 'cities.where.subAdmin1.' . $adminCode . '.take.' . $limit;
 			$cities = cache()->remember($cacheId, $this->cacheExpiration, function () use ($countryCode, $adminCode, $limit) {
 				return City::countryOf($countryCode)

@@ -1587,7 +1587,7 @@ label {
 }
 
 html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] body .intro-title {
-	font-family: 'Cairo', sans-serif;
+	
 	line-height: 1.4;
 }
 
@@ -8863,7 +8863,7 @@ table.checkboxtable td, table.checkboxtable th {
 }
 
 html[dir="rtl"] body .demo-intro .intro-title, .demo-intro html[dir="rtl"] body .intro-title {
-	font-family: 'Cairo', sans-serif;
+	
 	line-height: 1.4;
 }
 

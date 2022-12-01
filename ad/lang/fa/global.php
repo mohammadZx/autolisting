@@ -878,7 +878,7 @@ return [
 	'is_permanent_label' => 'این آگهی را به عنوان دائمی علامت گذاری کنید',
 	'is_permanent_hint' => 'آیا چیزی ماندگار است یا دائمی؟ این را می توان در هر زمان به روز یا حذف کرد.',
 	'package_entity' => 'آگهی',
-	'duration_of_promotion' => '{0}:number day of promotion|{1}:number day of promotion|[2,*]:number days of promotion',
+	'duration_of_promotion' => '',
 	'duration_of_publication' => 'برای :number روز آنلاین است',
 	'facebook_ads_included' => '{0}Facebook Ads (:number day)|{1}Facebook Ads (:number day)|[2,*]Facebook Ads (:number days)',
 	'google_ads_included' => '{0}Google Ads (:number day)|{1}Google Ads (:number day)|[2,*]Google Ads (:number days)',

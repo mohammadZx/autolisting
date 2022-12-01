@@ -49,12 +49,8 @@
 										{{ (old('package_id', $currentPackageId ?? 0)==$package->id) ? ' checked' : (($package->price==0) ? ' checked' : '') }} {{
 										$packageStatus }}
 								>
-								<label class="form-check-label mb-0{{ $packageIdError }}">
-									<strong class=""
-											data-bs-placement="right"
-											data-bs-toggle="tooltip"
-											title="{!! $package->description_string !!}"
-									>{!! $package->name . $badge !!} </strong>
+								<label for="packageId-{{$package->id}}" class="form-check-label mb-0{{ $packageIdError }}">
+									{!! $package->name . $badge !!} <span class="pkg desc">{!! $package->description_string !!}</span>
 								</label>
 							</div>
 						</td>

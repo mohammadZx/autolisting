@@ -140,9 +140,9 @@ trait CommonUpdateTrait
 			}
 			if (!$paymentExists) {
 				$packagesForFree = Package::query()->where('price', 0);
-				if ($packagesForFree->count() <= 0) {
+			//	if ($packagesForFree->count() <= 0) {
 					$post->reviewed_at = null;
-				}
+			//	}
 			}
 		}
 		
