@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\GenderController;
 use App\Http\Controllers\Api\HomeSectionController;
+use App\Http\Controllers\Api\Option\GetSubsInfo;
 use App\Http\Controllers\Api\PackageController;
 use App\Http\Controllers\Api\PageController;
 use App\Http\Controllers\Api\PaymentController;
@@ -99,6 +100,7 @@ Route::namespace('Auth')
 		
 	});
 
+Route::get('/site-info', [GetSubsInfo::class, 'index']);
 // genders
 Route::prefix('genders')
 	->controller(GenderController::class)
