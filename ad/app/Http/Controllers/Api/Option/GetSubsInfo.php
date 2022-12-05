@@ -18,6 +18,7 @@ class GetSubsInfo extends Controller
             'categories' => $this->getCategories(),
             'provinces' => $this->getProvinces(),
         ]);
+        exit;
     }
 
 
@@ -45,5 +46,30 @@ class GetSubsInfo extends Controller
 
     public function getProvinces(){
         return SubAdmin1::where('country_code', 'IR')->get();
+    }
+
+    public function getListings(){
+        $categories = [];
+        $limit = 8;
+        if(request()->has('categories') && request()->categories){
+            $categories = explode(',', request()->categories);
+        }
+        if(request()->has('limit')){
+            $limit = request()->limit;
+        }
+
+         $post = Post::query()->with([
+            'city' => function($q){
+                $q->with(['subAdmin2', 'subAdmin1']);
+            },
+            'pictures'
+         ]);
+        if(count($categories)){
+            $post = $post->whereHas('category', function($q) use($categories ){
+                $q->whereIn('id', $categories); 
+            });
+        }
+        $post = $post->limit($limit)->orderBy('id', 'DESC')->get();
+        return $post;
     }
 }

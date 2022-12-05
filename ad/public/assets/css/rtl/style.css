@@ -1051,7 +1051,7 @@ hr.small {
 
 .btn.btn-more {
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	
 	color: #000;
 	font-weight: bold;
 	line-height: 32px;
@@ -1060,7 +1060,7 @@ hr.small {
 
 .btn.btn-line {
 	text-transform: uppercase;
-	letter-spacing: 1.1px;
+	
 	color: #000;
 	font-weight: bold;
 	line-height: 20px;
@@ -1403,7 +1403,7 @@ h6 {
 	font-size: 16px;
 	font-weight: lighter;
 	text-transform: uppercase;
-	letter-spacing: 0.5rem;
+	
 }
 
 @media (max-width: 767px) {
@@ -1575,7 +1575,7 @@ label {
 	font-size: 2.5rem;
 	line-height: normal;
 	font-weight: bold;
-	letter-spacing: -0.3px;
+	
 	margin-bottom: 10px;
 	padding-bottom: 0;
 	text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.1);
@@ -1970,7 +1970,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 		height: auto;
 		text-transform: uppercase;
 		font-weight: 500;
-		letter-spacing: 0.5px;
+		
 		;
 		font-size: 13px;
 		padding: 15px 15px !important;
@@ -2011,7 +2011,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	
 	li .user-menu li a {
 		font-size: 11px;
-		letter-spacing: 0.55px;
+		
 		clear: both;
 		display: block;
 		font-weight: 400;
@@ -2152,7 +2152,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	padding: 30px 0;
 	font-size: 12px;
 	color: #4e575d;
-	letter-spacing: 0.5px;
+	
 }
 
 @media (max-width: 767px) {
@@ -2240,7 +2240,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	border-bottom: solid 1px var(--border-color);
 	color: #888;
 	font-size: 11px;
-	letter-spacing: 2px;
+	
 	margin-bottom: 20px;
 	margin-top: 30px;
 	padding: 20px 0;
@@ -2390,7 +2390,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 .intro p {
 	color: #e8eced;
 	font-size: 16px;
-	letter-spacing: 1px;
+	
 	font-weight: lighter;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -2912,7 +2912,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 .page-bottom-info-content h1 {
 	
 	font-weight: 500;
-	letter-spacing: 1px;
+	
 	margin-bottom: 15px;
 	margin-top: 0;
 	position: relative;
@@ -3022,7 +3022,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	
 	font-size: 13px;
 	font-weight: 500;
-	letter-spacing: 0;
+	
 	margin: 10px 0;
 	padding-bottom: 0;
 	-webkit-transition: all 0.25s cubic-bezier(0.4, 0, 1, 1) 0.1s;
@@ -3064,7 +3064,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	color: #9a9a9a;
 	font-size: 12px;
 	font-weight: normal;
-	letter-spacing: 0.54px;
+	
 	padding: 15px;
 	position: absolute;
 	left: 1px;
@@ -3110,7 +3110,7 @@ html[dir="rtl"] body .intro h1, .intro html[dir="rtl"] body h1, html[dir="rtl"] 
 	
 	font-size: 13px;
 	font-weight: 500;
-	letter-spacing: 0;
+	
 	min-height: 34px;
 	margin: 10px 0;
 	padding-bottom: 0;
@@ -5295,7 +5295,7 @@ h1.trtri span {
 .label.adlistingtype {
 	font-size: 12px;
 	font-weight: normal;
-	letter-spacing: 0.8px;
+	
 	vertical-align: middle;
 }
 
@@ -5689,7 +5689,7 @@ div.login-box .panel-footer label {
 	color: #2a3744;
 	font-size: 14px;
 	font-weight: normal;
-	letter-spacing: 1px;
+	
 	margin-bottom: 0;
 	margin-top: 0;
 	padding-bottom: 10px;
@@ -5783,7 +5783,7 @@ div.login-box .panel-footer label {
 	color: #2a3744;
 	font-size: 12px;
 	height: auto;
-	letter-spacing: 0.5px;
+	
 	line-height: 26px;
 	padding: 5px 10px;
 	margin-bottom: 1px;
@@ -5824,7 +5824,7 @@ li.divider {
 	color: #2a3744;
 	font-size: 20px;
 	font-weight: normal;
-	letter-spacing: 0.25px;
+	
 	margin-top: 0;
 	padding-bottom: 15px;
 }
@@ -6049,7 +6049,7 @@ td.items-details-td {
 
 .title-4 {
 	font-weight: bold;
-	letter-spacing: 1px;
+	
 	text-transform: uppercase;
 }
 
@@ -6715,7 +6715,7 @@ td.items-details-td {
 	display: block;
 	font-size: 11px;
 	font-weight: 500;
-	letter-spacing: 0.5px;
+	
 	opacity: 0;
 	padding: 5px 20px;
 	position: absolute;
@@ -6844,7 +6844,7 @@ td.items-details-td {
 
 .intro-modern .btn {
 	text-shadow: none;
-	letter-spacing: 0.2em;
+	
 	text-transform: uppercase;
 	font-size: 12px;
 }
@@ -6981,7 +6981,7 @@ td.items-details-td {
 	font-size: 18px;
 	font-weight: 700;
 	height: auto;
-	letter-spacing: 0;
+	
 	overflow: hidden;
 	white-space: normal;
 	padding: 0;
@@ -6999,7 +6999,7 @@ td.items-details-td {
 
 .card-event .event-badges .badge {
 	font-weight: lighter;
-	letter-spacing: 0.3px;
+	
 	;
 	padding: 3px 6px;
 	border-radius: 2px;
@@ -7008,7 +7008,7 @@ td.items-details-td {
 .card-event .event-badges .badge.price-tag {
 	font-size: 14px;
 	font-weight: normal;
-	letter-spacing: 1px;
+	
 	padding: 3px 6px;
 	line-height: 1;
 }
@@ -7022,7 +7022,7 @@ td.items-details-td {
 	
 	padding: 6px 14px;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	
 	box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -7155,7 +7155,7 @@ td.items-details-td {
 	text-align: center;
 	margin: 0 auto;
 	font-weight: 500;
-	letter-spacing: 0.5px;
+	
 	text-transform: capitalize;
 }
 
@@ -7500,7 +7500,7 @@ td.items-details-td {
 
 .ev-share .social-links .share-text {
 	text-transform: uppercase;
-	letter-spacing: 0;
+	
 	opacity: 0;
 	-webkit-transition: all 0.25s ease-in-out;
 	-moz-transition: all 0.25s ease-in-out;
@@ -7522,7 +7522,7 @@ td.items-details-td {
 
 .ev-image:hover .share-text {
 	opacity: 1;
-	letter-spacing: 2px;
+	
 }
 
 .event-details-title {
@@ -8221,7 +8221,7 @@ table.checkboxtable td, table.checkboxtable th {
 	font-weight: 700;
 	color: #292b2c;
 	font-size: .875rem;
-	letter-spacing: .2px;
+	
 	text-overflow: ellipsis;
 	width: 95%;
 	white-space: nowrap;
@@ -8851,7 +8851,7 @@ table.checkboxtable td, table.checkboxtable th {
 	font-size: 48px;
 	line-height: 1.4;
 	font-weight: lighter;
-	letter-spacing: 3px;
+	
 	margin-bottom: 10px;
 	padding-bottom: 0;
 	text-shadow: none;
@@ -8922,7 +8922,7 @@ html[dir="rtl"] body .demo-intro .intro-title, .demo-intro html[dir="rtl"] body 
 	padding: 12px 30px;
 	background: #ffffff;
 	font-size: 13px;
-	letter-spacing: 1px;
+	
 	text-transform: uppercase;
 	font-weight: 600;
 	color: #333;
@@ -8961,7 +8961,7 @@ html[dir="rtl"] body .demo-intro .intro-title, .demo-intro html[dir="rtl"] body 
 	margin-bottom: 0;
 	font-size: 18px;
 	color: #333;
-	letter-spacing: 1px;
+	
 	text-transform: uppercase;
 }
 
@@ -8973,7 +8973,7 @@ html[dir="rtl"] body .demo-intro .intro-title, .demo-intro html[dir="rtl"] body 
 	
 	.demo-featured h4 {
 		font-size: 14px;
-		letter-spacing: 0.0px;
+		
 	}
 }
 

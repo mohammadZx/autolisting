@@ -884,7 +884,7 @@ return [
 	'google_ads_included' => '{0}Google Ads (:number day)|{1}Google Ads (:number day)|[2,*]Google Ads (:number days)',
 	'twitter_ads_included' => '{0}Twitter Ads (:number day)|{1}Twitter Ads (:number day)|[2,*]Twitter Ads (:number days)',
 	'linkedin_ads_included' => '{0}LinkedIn Ads (:number day)|{1}LinkedIn Ads (:number day)|[2,*]LinkedIn Ads (:number days)',
-	'package_pictures_limit_allowed' => 'رسیدن به تعداد :limit عکس مجاز برای بارگذاری',
+	'package_pictures_limit_allowed' => '',
 	'get_started' => 'شروع کنید',
 	'pricing_label' => 'قیمت گذاری',
 	'language_not_supported' => 'کد زبان ":code" پشتبانی نمی شود.',

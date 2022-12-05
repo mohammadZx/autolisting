@@ -164,7 +164,7 @@ ol {
   font-family: Helvetica Neue, Arial, sans-serif; }
   .fileindex-wrapper h1 {
     font-size: 24px;
-    letter-spacing: 2px;
+    
     text-transform: uppercase; }
 
 .fileIndex ol {
@@ -174,7 +174,7 @@ ol {
     border-bottom: 1px solid #e0eded;
     float: left;
     font-size: 11px;
-    letter-spacing: 1px;
+    
     padding: 10px 15px;
     width: 50%; }
 

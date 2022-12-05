@@ -189,15 +189,15 @@ class FrontController extends Controller
 				'inDropdown' => true,
 				'isActive'   => (request()->segment(2) == 'transactions'),
 			],
-			[
-				'name'       => t('My Account'),
-				'url'        => url('account'),
-				'icon'       => 'fas fa-cog',
-				'group'      => t('My Account'),
-				'countVar'   => null,
-				'inDropdown' => true,
-				'isActive'   => (request()->segment(1) == 'account' && request()->segment(2) == null),
-			],
+			// [
+			// 	'name'       => t('My Account'),
+			// 	'url'        => url('account'),
+			// 	'icon'       => 'fas fa-cog',
+			// 	'group'      => t('My Account'),
+			// 	'countVar'   => null,
+			// 	'inDropdown' => true,
+			// 	'isActive'   => (request()->segment(1) == 'account' && request()->segment(2) == null),
+			// ],
 		];
 		
 		if (app('impersonate')->isImpersonating()) {

@@ -101,6 +101,7 @@ Route::namespace('Auth')
 	});
 
 Route::get('/site-info', [GetSubsInfo::class, 'index']);
+Route::get('/get-listings', [GetSubsInfo::class, 'getListings']);
 // genders
 Route::prefix('genders')
 	->controller(GenderController::class)
