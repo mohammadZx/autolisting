@@ -31,6 +31,7 @@ use App\Notifications\PostDeleted;
 use App\Notifications\PostWilBeDeleted;
 use App\Models\Post;
 use App\Models\Country;
+use App\Options\Sms\BaseSms;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 
@@ -249,6 +250,16 @@ class ListingsPurge extends Command
 						(isCli()) ? $this->warn($msg) : $this->printWeb($msg);
 					}
 				}
+			}
+
+			if ($today->diffInDays($post->created_at) == 26){
+					// notify user for 3 day
+				$sms = BaseSms::sms('ghasedak')->sendByBodyId($post->user->phone, 'auto3day', "{$post->user->name};{$post->title};3");
+
+			}
+			if ($today->diffInDays($post->created_at) == 29){
+				// notify user for 1 day
+				$sms = BaseSms::sms('ghasedak')->sendByBodyId($post->user->phone, 'auto3day', "{$post->user->name};{$post->title};1");
 			}
 			
 			/*

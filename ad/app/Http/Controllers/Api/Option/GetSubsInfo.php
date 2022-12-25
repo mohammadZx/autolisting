@@ -35,9 +35,13 @@ class GetSubsInfo extends Controller
     }
 
     public function getFooterInfo(){
-        return Post::whereHas('latestPayment', function($q){
+        return Post::with([
+            'city' => function($q){
+                $q->with(['subAdmin2', 'subAdmin1']);
+            }
+         ])->whereHas('latestPayment', function($q){
             $q->whereIn('package_id', [7, 6]); 
-        })->limit(15)->get();
+        })->limit(12)->get();
     }
 
     public function getCategories(){

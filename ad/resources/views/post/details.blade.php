@@ -183,7 +183,7 @@
 											
 											<div class="row">
 												{{-- Location --}}
-												<div class="col-md-6 col-sm-6 col-6">
+												<div class="col-md-6">
 													<h4 class="fw-normal p-0">
 														<span class="fw-bold"><i class="bi bi-geo-alt"></i> {{ t('location') }}: </span>
 														<span>
@@ -197,8 +197,9 @@
 												</div>
 		
 												{{-- Price / Salary --}}
-												<div class="col-md-6 col-sm-6 col-6 text-end">
-													@if(config('settings.show_price', false))
+												@if(config('settings.show_price', false))
+												<div class="col-md-6 text-md-end mt-3 mt-md-0">
+													
 													<h4 class="fw-normal p-0">
 														<span class="fw-bold">
 															{{ getPriceLabel(data_get($post, 'category.type')) }}
@@ -212,8 +213,12 @@
 															@endif
 														</span>
 													</h4>
-													@endif
+													
 												</div>
+												@else
+
+												<div class="col-md-6 text-md-end mt-3 mt-md-0">{!! genPhoneNumberBtn($post) !!}</div>
+												@endif
 											</div>
 											<hr class="border-0 bg-secondary">
 											

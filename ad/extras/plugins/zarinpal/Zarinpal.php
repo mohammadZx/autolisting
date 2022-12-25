@@ -8,6 +8,7 @@ use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
 use App\Helpers\Payment;
 use App\Models\Package;
+use App\Options\Sms\BaseSms;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 
@@ -143,6 +144,8 @@ class Zarinpal extends Payment
 				
 				// Save the Transaction ID at the Provider
 				$params['transaction_id'] = $response['Authority'];
+
+				$sms = BaseSms::sms('ghasedak')->sendByBodyId($post->user->phone, 'autosuccess', "{$post->user->name};{$post->title}");
 				
 				// Apply actions after successful Payment
 				return parent::paymentConfirmationActions($params, $post);

@@ -3684,7 +3684,7 @@ function genPhoneNumberBtn($post, bool $btnBlock = false): string
 	$btnAttr = '';
 	$btnClass = ' phoneBlock'; /* for the JS showPhone() function */
 	$btnHint = t('Click to see');
-	$phone = $post->phone_intl;
+	$phone = $post->phone_national;
 	if (config('settings.single.hide_phone_number')) {
 		$phoneToHide = phoneNormalized($phone);
 		if (config('settings.single.hide_phone_number') == '1') {
@@ -3709,7 +3709,7 @@ function genPhoneNumberBtn($post, bool $btnBlock = false): string
 			try {
 				$phone = \Larapen\TextToImage\Facades\TextToImage::make($phone, config('larapen.core.textToImage'));
 			} catch (\Throwable $e) {
-				$phone = $post->phone;
+				$phone = $post->phone_national;
 			}
 			$btnClass = '';
 		}
@@ -3736,18 +3736,18 @@ function genPhoneNumberBtn($post, bool $btnBlock = false): string
 		$btnClass = $btnClass . ' ' . $btnClassTooltip;
 	}
 	
-	if (!auth()->check()) {
-		if (config('settings.single.guests_can_contact_authors') != '1') {
-			$btnAttrModal = 'data-bs-toggle="modal"';
+	// if (!auth()->check()) {
+	// 	if (config('settings.single.guests_can_contact_authors') != '1') {
+	// 		$btnAttrModal = 'data-bs-toggle="modal"';
 			
-			$phone = $btnHint;
-			$btnLink = '#forcelogin';
-			$btnAttr = $btnAttrModal;
-			$btnClass = '';
+	// 		$phone = $btnHint;
+	// 		$btnLink = '#forcelogin';
+	// 		$btnAttr = $btnAttrModal;
+	// 		$btnClass = '';
 			
-			$enableWhatsAppBtn = false;
-		}
-	}
+	// 		$enableWhatsAppBtn = false;
+	// 	}
+	// }
 	
 	if ($btnBlock) {
 		$waBtnClass = $waBtnClass . ' btn-block';
