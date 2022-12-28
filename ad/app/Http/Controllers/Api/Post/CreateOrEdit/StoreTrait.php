@@ -66,6 +66,7 @@ trait StoreTrait
 		// Checkboxes
 		$post->negotiable = $request->input('negotiable');
 		$post->phone_hidden = $request->input('phone_hidden');
+		$post->fixed_phone = $request->fixed_phone;
 		
 		// Other fields
 		$post->country_code = $request->input('country_code', config('country.code'));

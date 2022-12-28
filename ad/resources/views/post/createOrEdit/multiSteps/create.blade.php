@@ -387,6 +387,19 @@
 												<input name="phone_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
 											</div>
 										</div>
+
+
+										{{-- fixed phone  --}}
+										<?php $fixedPhoneError = (isset($errors) && $errors->has('fixed_phone')) ? ' is-invalid' : ''; ?>
+										<div id="address_box" class="row mb-3 required">
+											<label class="col-md-12 text-start col-form-label{{ $fixedPhoneError }}" for="fixed_phone">{{ t('fixed phone') }} <sup>*</sup></label>
+											<div class="col-md-12">
+											<input placeholder="02166991133" id="fixed_phone" name="fixed_phone"
+												class="form-control input-md{{ $fixedPhoneError }}"
+												type="text"
+												value="{{ old('fixed_phone') }}">
+											</div>
+										</div>
 										
 										@if (!auth()->check())
 											@if (in_array(config('settings.single.auto_registration'), [1, 2]))

@@ -88,6 +88,7 @@ class Post extends BaseModel implements Feedable
 		'email',
 		'phone',
 		'phone_national',
+		'fixed_phone',
 		'phone_country',
 		'phone_hidden',
 		'address',
@@ -318,6 +319,10 @@ class Post extends BaseModel implements Feedable
 	public function postType()
 	{
 		return $this->belongsTo(PostType::class, 'post_type_id', 'id');
+	}
+
+	public function comments(){
+		return $this->morphMany(Comment::class, 'commentable');
 	}
 	
 	public function category()

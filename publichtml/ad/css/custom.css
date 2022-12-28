@@ -33,3 +33,115 @@ body,h1,h2,h3,h4,h5,h6,p,a,div,table,tr,td,tbody,tfoot,caption, select,input,opt
 #phone {
     text-align: right;
   }
+
+  .pkg.desc {
+    display: block;
+    font-size: 11px;
+    color: #6c6c6c;
+    margin-top: 3px;
+    max-width: 300px;
+  }
+  
+  .btn.phoneBlock {
+    direction: ltr;
+  }
+  
+  .navbar.navbar-site ul.navbar-nav > li.postadd.nav-item a {
+    line-height: 1.5;
+    padding: 8px;
+    height: fit-content;
+}
+@media screen and (min-width: 765px){
+  a.fade-mobile {
+        display: none;
+  }
+}
+@media screen and (max-width: 765px){
+ a.fade-mobile{
+  margin-top: 0 !important;
+  height: fit-content !important;
+  width: fit-content;
+  padding: 5px !important;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.navbar-identity.p-sm-0 {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button.navbar-toggler.-toggler.float-end {
+  margin-top: 0 !important;
+  height: 10px;
+  font-size: 15px !important;
+   height: auto !important;
+  padding: 5px !important;
+}
+
+a.navbar-brand.logo.logo-title {
+  margin-left: 0;
+}
+
+button.navbar-toggler.-toggler.float-end svg {
+  height: 20px;
+}
+
+
+}
+
+.comments > .comment .comment {
+  padding-right: 30px;
+}
+
+.comments{
+  margin-bottom: 15px;
+}
+
+
+
+.rate-area {
+	border-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.rate-area:not(:checked) > input {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+}
+
+.rate-area:not(:checked) > label {
+	width: 0.8em;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	font-size: 180%;
+	color: lightgrey;
+}
+
+.rate-area:not(:checked) > label:before {
+	content: "★";
+}
+
+.rate-area > input:checked ~ label {
+	color: gold;
+}
+
+.rate-area:not(:checked) > label:hover,
+.rate-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+
+.rate-area > input:checked + label:hover,
+.rate-area > input:checked + label:hover ~ label,
+.rate-area > input:checked ~ label:hover,
+.rate-area > input:checked ~ label:hover ~ label,
+.rate-area > label:hover ~ input:checked ~ label {
+	color: gold;
+}
+
+.form-comment textarea{
+  min-height: 100px;
+}

@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\BlacklistController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CategoryFieldController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -126,6 +127,7 @@ Route::middleware(['admin', 'clearance', 'banned.user', 'no.http.cache'])
 		PanelRoutes::resource('roles', RoleController::class);
 		PanelRoutes::resource('settings', SettingController::class);
 		PanelRoutes::resource('users', UserController::class);
+		PanelRoutes::resource('comments', CommentController::class);
 		
 		// Others
 		Route::get('account', [UserController::class, 'account']);

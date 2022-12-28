@@ -20,6 +20,24 @@ if ($multiCountriesIsEnabled) {
 	$logoLabel = config('settings.app.name') . ((!empty(config('country.name'))) ? ' ' . config('country.name') : '');
 }
 ?>
+<?php
+$addListingUrl = \App\Helpers\UrlGen::addPost();
+$addListingAttr = '';
+if (!auth()->check()) {
+	if (config('settings.single.guests_can_post_listings') != '1') {
+		$addListingUrl = '#forcelogin';
+		$addListingAttr = ' data-bs-toggle="modal"';
+	}
+}
+if (config('settings.single.pricing_page_enabled') == '1') {
+	$addListingUrl = \App\Helpers\UrlGen::pricing();
+	$addListingAttr = '';
+}
+
+if(request()->is('login')){
+	$addListingUrl = url('/login');
+}
+?>
 <div class="header">
 	<nav class="navbar fixed-top navbar-site navbar-light bg-light navbar-expand-md" role="navigation">
 		<div class="container">
@@ -31,6 +49,9 @@ if ($multiCountriesIsEnabled) {
 						 alt="{{ strtolower(config('settings.app.name')) }}" class="main-logo" data-bs-placement="bottom"
 						 data-bs-toggle="tooltip"
 						 title="{!! $logoLabel !!}"/>
+				</a>
+				<a class="fade-mobile btn btn-block btn-border btn-listing login-button" data-redirect="/ad/posts/create" href="{{ $addListingUrl }}"{!! $addListingAttr !!}>
+					<i class="far fa-edit"></i> {{ t('Create Listing') }}
 				</a>
 				{{-- Toggle Nav (Mobile) --}}
 				<button class="navbar-toggler -toggler float-end"
@@ -178,24 +199,7 @@ if ($multiCountriesIsEnabled) {
 						</li>
 					@endif
 					
-					<?php
-					$addListingUrl = \App\Helpers\UrlGen::addPost();
-					$addListingAttr = '';
-					if (!auth()->check()) {
-						if (config('settings.single.guests_can_post_listings') != '1') {
-							$addListingUrl = '#forcelogin';
-							$addListingAttr = ' data-bs-toggle="modal"';
-						}
-					}
-					if (config('settings.single.pricing_page_enabled') == '1') {
-						$addListingUrl = \App\Helpers\UrlGen::pricing();
-						$addListingAttr = '';
-					}
-
-					if(request()->is('login')){
-						$addListingUrl = url('/login');
-					}
-					?>
+					
 					<li class="nav-item postadd">
 						<a class="btn btn-block btn-border btn-listing login-button" data-redirect="/ad/posts/create" href="{{ $addListingUrl }}"{!! $addListingAttr !!}>
 							<i class="far fa-edit"></i> {{ t('Create Listing') }}

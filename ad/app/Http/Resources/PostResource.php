@@ -54,6 +54,9 @@ class PostResource extends JsonResource
 		if (in_array('pictures', $embed)) {
 			$entity['pictures'] = PictureResource::collection($this->whenLoaded('pictures'));
 		}
+
+
+		$entity['comments'] = CommentResource::collection($this->comments()->whereParentId(0)->whereActive(1)->with(['childrens', 'user'])->get());
 		
 		$entity['slug'] = $this->slug ?? null;
 		$entity['phone_intl'] = $this->phone_intl ?? null;

@@ -29,6 +29,7 @@ class CreatePostsTable extends Migration
 			$table->string('email', 100)->nullable();
 			$table->string('phone', 60)->nullable();
 			$table->string('phone_national', 30)->nullable();
+			$table->string('fixed_phone', 30)->nullable();
 			$table->string('phone_country', 2)->nullable();
 			$table->boolean('phone_hidden')->nullable()->default('0');
 			$table->string('address', 191)->nullable();

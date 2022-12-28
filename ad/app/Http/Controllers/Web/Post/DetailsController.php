@@ -22,6 +22,7 @@ use App\Http\Controllers\Web\Post\Traits\CustomFieldTrait;
 use App\Http\Controllers\Web\Post\Traits\ReviewsPlugin;
 use App\Models\Package;
 use App\Http\Controllers\Web\FrontController;
+use App\Models\Comment;
 use App\Models\Scopes\VerifiedScope;
 use App\Models\Scopes\ReviewedScope;
 use Larapen\LaravelMetaTags\Facades\MetaTag;
@@ -121,6 +122,8 @@ class DetailsController extends FrontController
 		
 		$message = $this->handleHttpError($data);
 		$post = data_get($data, 'result');
+		$comments = Comment::whereCommentableId(data_get($post, 'id'))->whereParentId(0)->whereActive(1)->orderBy('id', 'DESC')->get();
+
 		$postCatFields = data_get($data, 'extra.fields');
 		
 		// Listing not found
@@ -199,7 +202,8 @@ class DetailsController extends FrontController
 		
 		return appView('post.details', compact(
 			'picturesLimit', 'post', 'pictures', 'user', 'catBreadcrumb',
-			'customFields', 'commentsAreDisabledByUser', 'widgetSimilarPosts'
+			'customFields', 'commentsAreDisabledByUser', 'widgetSimilarPosts',
+			'comments'
 		));
 	}
 	

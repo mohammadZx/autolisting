@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\Auth\ResetPasswordController;
 use App\Http\Controllers\Web\Auth\SocialController;
+use App\Http\Controllers\Web\Comment\CommentController;
 use App\Http\Controllers\Web\CountriesController;
 use App\Http\Controllers\Web\FileController;
 use App\Http\Controllers\Web\HomeController;
@@ -549,6 +550,9 @@ return redirect('/login');
 })->name('register');
 
 
+Route::prefix('comment')->name('comment.')->middleware('auth')->group(function(){
+	Route::post('/', [CommentController::class, 'store'])->name('store');
+});
 
 Route::get('geo-import', function(){
 	$api = 'https://api.divar.ir/v5/places/cities/1/districts';

@@ -194,6 +194,16 @@
 															{{data_get($post, 'address')}}
 														</span>
 													</h4>
+													@if(data_get($post, 'fixed_phone'))
+													<h4 class="fw-normal p-0 mt-2">
+														<span class="fw-bold"><i class="bi bi-telephone"></i> {{ t('fixed phone') }}: </span>
+														<span>
+															<a href="tell:{{data_get($post, 'fixed_phone')}}">
+																{{ data_get($post, 'fixed_phone') }}
+															</a>
+														</span>
+													</h4>
+													@endif
 												</div>
 		
 												{{-- Price / Salary --}}
@@ -335,6 +345,10 @@
 								@endif
 							</div>
 						</div>
+					</div>
+
+					<div class="inner inner-box items-details-wrapper pb-0 mt-2">
+						@include('vendor.comment.comment-box', ['commentable' => $post, 'comments' => $comments])
 					</div>
 				</div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Option;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Payment;
 use App\Models\SubAdmin1;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class GetSubsInfo extends Controller
             'categories' => $this->getCategories(),
             'provinces' => $this->getProvinces(),
         ]);
-        exit;
+      exit;
     }
 
 
@@ -51,8 +52,8 @@ class GetSubsInfo extends Controller
     public function getProvinces(){
         return SubAdmin1::where('country_code', 'IR')->get();
     }
-
-    public function getListings(){
+  
+  	public function getListings(){
         $categories = [];
         $limit = 8;
         if(request()->has('categories') && request()->categories){
@@ -62,18 +63,18 @@ class GetSubsInfo extends Controller
             $limit = request()->limit;
         }
 
-         $post = Post::query()->with([
+        $post = Post::query()->with([
             'city' => function($q){
                 $q->with(['subAdmin2', 'subAdmin1']);
             },
-            'pictures'
+          	'pictures'
          ]);
         if(count($categories)){
             $post = $post->whereHas('category', function($q) use($categories ){
                 $q->whereIn('id', $categories); 
             });
         }
-        $post = $post->limit($limit)->orderBy('id', 'DESC')->get();
+        $post = $post->limit($limit)->groupBy('posts.id')->orderBy(Payment::select('amount')->whereColumn('payments.post_id', 'posts.id'), 'DESC')->get();
         return $post;
     }
 }

@@ -101,6 +101,14 @@
 										</a>
 									</li>
 								@endif
+								@if (auth()->user()->can('comments') || userHasSuperAdminPermissions())
+									<li class="sidebar-item">
+										<a href="{{ admin_url('comments') }}" class="sidebar-link">
+											<i class="mdi mdi-comment"></i>
+											<span class="hide-menu">{{ trans('admin.comments') }}</span>
+										</a>
+									</li>
+								@endif
 							</ul>
 						</li>
 					@endif

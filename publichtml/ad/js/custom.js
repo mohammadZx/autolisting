@@ -31,3 +31,7 @@ $('.login-button').click(function(){
   window.afterLoginToContact = function(){
     window.location = window.location + '?openContact#contactUser'
   }
+
+  window.submitComment = function(){
+    $('form.form-comment').trigger('submit')
+  }

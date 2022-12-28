@@ -11,6 +11,13 @@ return [
     |
     */
     'login/register' => 'ورود/ثبت نام',
+    'fixed phone' => 'تلفن ثابت',
+    'Comments' => 'نظرات',
+    'Your comment' => 'دیدگاه شما',
+    'Send comment' => 'ارسال دیدگاه',
+    'Approve' => 'تایید',
+    'Disapprove' => 'عدم تایید',
+    'Answer' => 'پاسخ',
     'address' => 'آدرس',
     'province' => 'استان',
     'select_a_province' => 'یک استان را انتخاب کنید',
