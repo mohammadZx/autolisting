@@ -3621,13 +3621,13 @@ function genEmailContactBtn($post = null, bool $btnBlock = false, bool $iconOnly
 		&& $post->auth_field == 'phone'
 		&& !empty($post->phone)
 	);
-	if (empty($post->email) && !$smsNotificationCanBeSent) {
-		if ($iconOnly) {
-			$out = '<i class="far fa-envelope" style="color: #dadada"></i>';
-		}
+	// if (empty($post->email) && !$smsNotificationCanBeSent) {
+	// 	if ($iconOnly) {
+	// 		$out = '<i class="far fa-envelope" style="color: #dadada"></i>';
+	// 	}
 		
-		return $out;
-	}
+	// 	return $out;
+	// }
 	
 	$btnLink = '#contactUser';
 	$btnClass = '';
@@ -3645,7 +3645,7 @@ function genEmailContactBtn($post = null, bool $btnBlock = false, bool $iconOnly
 			$btnClass = $btnClass . ' btn-block';
 		}
 		
-		$out .= '<a href="' . $btnLink . '" data-bs-toggle="modal" class="btn btn-default' . $btnClass . '">';
+		$out .= '<a href="' . $btnLink . '" data-bs-toggle="modal" class="btn btn-default login-button' . $btnClass . '" data-redirect="false" data-callback="afterLoginToContact">';
 		$out .= '<i class="far fa-envelope"></i> ';
 		$out .= t('Send a message');
 	}

@@ -259,7 +259,7 @@ return [
     'my_account' => 'حساب من',
     'my_account_on' => 'حساب من در :appName',
     
-    'message_has_sent_successfully_to' => 'پیام شما با موفقیت به :contact_name.',
+    'message_has_sent_successfully_to' => 'پیام شما با موفقیت به :contact_name. برای ادامه گفتگو از قسمت پنل کاربری وارد قسمت چت ها شوید',
     'report_has_sent_successfully_to_us' => 'گزارش شما با موفقیت برای ما ارسال شد. متشکرم!',
     
     'posting_listings_is_disabled' => 'ارسال آگهی برای این زمان غیرفعال است. لطفا بعدا تلاش کنید. متشکرم.',
@@ -958,7 +958,7 @@ return [
 	'captcha_reload_hint' => 'کد امنیتی را دوباره بارگیری کنید.',
 	'observer_nothing_has_changed' => 'هیچ چیز تغییر نکرده است. به روز رسانی انجام نشد.',
 	'admin_panel' => 'پنل مدیریت',
-	'is_still_available' => 'سلام :name, آیا این هنوز موجود است؟',
+	'is_still_available' => 'سلام :name',
 	'sir_miss' => 'آقا/خانم',
 	'reference' => 'ارجاع',
 	'Browse Listings' => 'لیست تعمیرگاه ها',
