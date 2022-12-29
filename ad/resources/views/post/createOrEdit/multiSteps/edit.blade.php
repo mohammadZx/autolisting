@@ -379,7 +379,7 @@ if ($post->category) {
 										{{-- fixed phone  --}}
 										<?php $fixedPhoneError = (isset($errors) && $errors->has('fixed_phone')) ? ' is-invalid' : ''; ?>
 										<div id="address_box" class="row mb-3 required">
-											<label class="col-md-12 text-start col-form-label{{ $fixedPhoneError }}" for="fixed_phone">{{ t('fixed phone') }} <sup>*</sup></label>
+											<label class="col-md-12 text-start col-form-label{{ $fixedPhoneError }}" for="fixed_phone">{{ t('fixed phone') }}</label>
 											<div class="col-md-12">
 											<input placeholder="02166991133" id="fixed_phone" name="fixed_phone"
 												class="form-control input-md{{ $fixedPhoneError }}"

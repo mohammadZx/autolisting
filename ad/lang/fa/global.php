@@ -219,7 +219,7 @@ return [
     'resume_format' => 'فرمت تصاویر : pdf, doc, docx, odt, rtf, jpg, png',
     'file_types' => 'انواع فایل: :file_types',
     'Browse' => 'انتخاب از کامپیوتر',
-    'add_up_to_x_pictures_text' => 'مجاز به آپلود  :pictures_number عکس می باشید. استفاده از تصاویر واقعی توصیه می شود.',
+    'add_up_to_x_pictures_text' => 'مجاز به آپلود  :pictures_number عکس می باشید. استفاده از تصاویر واقعی توصیه می شود.. آپلود فیلم فقط با ارسال پیام به پشتیبانی و پرداخت هزینه میسر می باشد',
     'seller_information' => 'اطلاعات صاحب کسب و کار',
     'seller_name' => 'نام',
     'seller_email' => 'ایمیل',
