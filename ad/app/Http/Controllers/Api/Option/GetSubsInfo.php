@@ -15,15 +15,14 @@ class GetSubsInfo extends Controller
     public function index(){
 
 
-        $data = Cache::remember('site_options', 7200 , function () {
-            return [
+            $data = [
                 'random_phone' => $this->getHeaderPhonesRandom(),
                 'footer_info' => $this->getFooterInfo(),
                 'phones' => $this->getPhones(),
                 'categories' => $this->getCategories(),
                 'provinces' => $this->getProvinces(),
             ];
-        });
+
 
         return response()->json($data);
       exit;
@@ -62,29 +61,28 @@ class GetSubsInfo extends Controller
   
   	public function getListings(){
         
-        $posts = Cache::remember('site_listings', 7200 , function () {
-            $categories = [];
-            $limit = 8;
-            if(request()->has('categories') && request()->categories){
-                $categories = explode(',', request()->categories);
-            }
-            if(request()->has('limit')){
-                $limit = request()->limit;
-            }
 
-            $post = Post::query()->with([
-                'city' => function($q){
-                    $q->with(['subAdmin2', 'subAdmin1']);
-                },
-                'pictures'
-            ]);
-            if(count($categories)){
-                $post = $post->whereHas('category', function($q) use($categories ){
-                    $q->whereIn('id', $categories); 
-                });
-            }
-            return $post->limit($limit)->groupBy('posts.id')->orderBy(Payment::select('amount')->whereColumn('payments.post_id', 'posts.id'), 'DESC')->get();
+      $categories = [];
+      $limit = 8;
+      if(request()->has('categories') && request()->categories){
+        $categories = explode(',', request()->categories);
+      }
+      if(request()->has('limit')){
+        $limit = request()->limit;
+      }
+
+      $post = Post::query()->with([
+        'city' => function($q){
+          $q->with(['subAdmin2', 'subAdmin1']);
+        },
+        'pictures'
+      ]);
+      if(count($categories)){
+        $post = $post->whereHas('category', function($q) use($categories ){
+          $q->whereIn('id', $categories); 
         });
-        return $posts;
+      }
+      return $post->limit($limit)->groupBy('posts.id')->orderBy(Payment::select('amount')->whereColumn('payments.post_id', 'posts.id'), 'DESC')->get();
+
     }
 }

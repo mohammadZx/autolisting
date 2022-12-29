@@ -27,6 +27,7 @@ class CommentController extends Controller
         $comment->active = 0;
         $comment->save();
 
+        flash(t('Your comment successfully insert'))->success();
         return redirect()->back();
     }
 }

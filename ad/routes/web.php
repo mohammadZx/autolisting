@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\Account\CommentsController;
 use App\Http\Controllers\Web\Account\CloseController;
 use App\Http\Controllers\Web\Account\EditController as AccountEditController;
 use App\Http\Controllers\Web\Account\MessagesController;
@@ -459,6 +460,15 @@ Route::namespace('App\Http\Controllers\Web')
 								Route::get('{id}/delete', 'destroy');
 								Route::post('delete', 'destroy');
 							});
+
+						// Messenger
+						Route::controller(CommentsController::class)
+						->prefix('comments')
+						->group(function ($router) {
+							// $router->pattern('id', '[0-9]+');
+							Route::get('/', 'index');
+							Route::post('/answer', 'answer')->name('account_comment_answer');
+						});
 						
 						// Transactions
 						Route::get('transactions', [TransactionsController::class, 'index']);

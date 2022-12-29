@@ -90,7 +90,7 @@ button.navbar-toggler.-toggler.float-end svg {
 
 }
 
-.comments > .comment .comment {
+.comment-children {
   padding-right: 30px;
 }
 
@@ -145,3 +145,8 @@ button.navbar-toggler.-toggler.float-end svg {
 .form-comment textarea{
   min-height: 100px;
 }
+
+.answer-toggle:checked + .answer-form{
+  display: block !important;
+}
+
