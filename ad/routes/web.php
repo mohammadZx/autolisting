@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\Account\CloseController;
 use App\Http\Controllers\Web\Account\EditController as AccountEditController;
 use App\Http\Controllers\Web\Account\MessagesController;
 use App\Http\Controllers\Web\Account\PostsController;
+use App\Http\Controllers\Web\Account\RequestController;
 use App\Http\Controllers\Web\Account\SavedSearchesController;
 use App\Http\Controllers\Web\Account\TransactionsController;
 use App\Http\Controllers\Web\Ajax\CategoryController as AjaxCategoryController;
@@ -461,7 +462,7 @@ Route::namespace('App\Http\Controllers\Web')
 								Route::post('delete', 'destroy');
 							});
 
-						// Messenger
+						// Comments
 						Route::controller(CommentsController::class)
 						->prefix('comments')
 						->group(function ($router) {
@@ -469,6 +470,16 @@ Route::namespace('App\Http\Controllers\Web')
 							Route::get('/', 'index');
 							Route::post('/answer', 'answer')->name('account_comment_answer');
 						});
+
+						// Requests
+						Route::controller(RequestController::class)
+						->prefix('requests')
+						->group(function ($router) {
+							// $router->pattern('id', '[0-9]+');
+							Route::get('/', 'index');
+							Route::post('/', 'store');
+						});
+						
 						
 						// Transactions
 						Route::get('transactions', [TransactionsController::class, 'index']);

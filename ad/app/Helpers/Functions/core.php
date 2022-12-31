@@ -15,6 +15,7 @@
 
 use App\Helpers\Arr;
 
+require __DIR__ . '/jdate.php';
 /**
  * Check if a Model has translation fields
  *

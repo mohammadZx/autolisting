@@ -42,6 +42,7 @@ use App\Http\Controllers\Api\ThreadController;
 use App\Http\Controllers\Api\ThreadMessageController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UserTypeController;
+use App\Http\Controllers\Web\Account\RequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -102,6 +103,7 @@ Route::namespace('Auth')
 
 Route::get('/site-info', [GetSubsInfo::class, 'index']);
 Route::get('/get-listings', [GetSubsInfo::class, 'getListings']);
+Route::post('/add-request', [RequestController::class, 'store']);
 // genders
 Route::prefix('genders')
 	->controller(GenderController::class)

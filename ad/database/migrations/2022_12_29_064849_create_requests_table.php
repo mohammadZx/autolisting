@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('car_model')->nullable();
+            $table->string('city')->nullable();
+            $table->text('content',500)->nullable();
+            $table->text('image', 1000)->nullable();
             $table->timestamps();
         });
     }

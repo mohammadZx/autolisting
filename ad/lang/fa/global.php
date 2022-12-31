@@ -10,6 +10,14 @@ return [
     | The following language lines are used by the global website.
     |
     */
+    'You can call the users that send a requests' => 'شما می توانید با کاربرانی که درخواست ارسال کرده اند تماس بگیرید',
+    'Requests' => 'درخواست های کاربران',
+    'Lastest Requests' => 'آخرین درخواست های تعمیر و صافکاری کاربران',
+    'Car model' => 'مدل ماشین',
+    'content' => 'توضیحات',
+    'date' => 'تاریخ',
+    'Your comment successfully insert' => 'دیدگاه شما با موفقیت ثبت شد و بعد از تایید مدیران به نمایش در خواهد آمد',
+    'Comment answer' => 'پاسخ به دیدگاه',
     'login/register' => 'ورود/ثبت نام',
     'fixed phone' => 'تلفن ثابت',
     'Comments' => 'نظرات',

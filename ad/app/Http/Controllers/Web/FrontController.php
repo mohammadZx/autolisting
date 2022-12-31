@@ -181,6 +181,16 @@ class FrontController extends Controller
 				'isActive'         => (request()->segment(2) == 'comments'),
 			],
 			[
+				'name'             => t('Requests'),
+				'url'              => url('account/requests'),
+				'icon'             => 'far fa-user',
+				'group'            => t('my_listings'),
+				'countVar'         => 0,
+				'countCustomClass' => ' count-threads-with-new-messages',
+				'inDropdown'       => true,
+				'isActive'         => (request()->segment(2) == 'requests'),
+			],
+			[
 				'name'       => t('Saved searches'),
 				'url'        => url('account/saved-searches'),
 				'icon'       => 'fas fa-bell',
