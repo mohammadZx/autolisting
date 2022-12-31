@@ -124,6 +124,7 @@ class Kernel extends HttpKernel
 		'clearance'       => \App\Http\Middleware\Clearance::class,
 		'no.http.cache'   => \App\Http\Middleware\NoHttpCache::class,
 		'only.ajax'       => \App\Http\Middleware\OnlyAjax::class,
+		'had_premium_plan'       => \App\Http\Middleware\HasPremiumPlan::class,
 	];
 	
 	/**

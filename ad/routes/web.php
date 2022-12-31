@@ -476,7 +476,7 @@ Route::namespace('App\Http\Controllers\Web')
 						->prefix('requests')
 						->group(function ($router) {
 							// $router->pattern('id', '[0-9]+');
-							Route::get('/', 'index');
+							Route::get('/', 'index')->middleware('had_premium_plan');
 							Route::post('/', 'store');
 						});
 						

@@ -70,7 +70,7 @@ return [
     |
     */
 	
-    'timezone' => (function_exists('env')) ? env('TIMEZONE', 'UTC') : 'UTC',
+    'timezone' => 'Asia/Tehran',
 	
     /*
     |--------------------------------------------------------------------------

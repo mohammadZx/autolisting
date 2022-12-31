@@ -45,7 +45,8 @@ class GetSubsInfo extends Controller
         return Post::with([
             'city' => function($q){
                 $q->with(['subAdmin2', 'subAdmin1']);
-            }
+            },
+          'latestPayment' => fn($q) => $q->with('package')
          ])->whereHas('latestPayment', function($q){
             $q->whereIn('package_id', [7, 6]); 
         })->limit(12)->get();
@@ -75,7 +76,8 @@ class GetSubsInfo extends Controller
         'city' => function($q){
           $q->with(['subAdmin2', 'subAdmin1']);
         },
-        'pictures'
+        'pictures',
+        'latestPayment' => fn($q) => $q->with('package')
       ]);
       if(count($categories)){
         $post = $post->whereHas('category', function($q) use($categories ){
